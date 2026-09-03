@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Macetas Milenarias - Cerámica China</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #3d2b1f;
+      padding: 40px 20px;
+      min-height: 100vh;
+      background-color: #ffffff;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* --- Encabezado --- */
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, rgba(0,124,95,0.92), rgba(0,90,70,0.92));
+      border-radius: 16px;
+      padding: 45px 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      border: 3px solid #c1272d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240,220,140,0.5), transparent 60%);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #f8efe0;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-shadow: 3px 3px 0 rgba(193,39,45,0.8);
+      position: relative;
+    }
+
+    header p {
+      margin-top: 12px;
+      color: #e9d8a6;
+      font-size: 1.15rem;
+      font-style: italic;
+      position: relative;
+    }
+
+    .divider {
+      width: 80px;
+      height: 4px;
+      background: #c1272d;
+      margin: 20px auto 0;
+      border-radius: 2px;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 1.05rem;
+      color: #5a4632;
+      margin: 25px auto 30px;
+      font-weight: 600;
+      max-width: 800px;
+      line-height: 1.6;
+    }
+
+    /* --- Tarjeta producto --- */
+    .card {
+      background: rgba(248,239,224,0.95);
+      border: 2px solid #c1272d;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    .card h2 {
+      color: #007c5f;
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card h2 .icon {
+      font-size: 1.5rem;
+    }
+
+    .sub-title {
+      color: #7a6a55;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      border-bottom: 1px dashed rgba(193,39,45,0.4);
+      padding-bottom: 12px;
+    }
+
+    .product-main { text-align: center; }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .gallery img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 3px solid #c1272d;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transition: transform 0.3s;
+      background: #fff;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.06);
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .price-tag {
+      background: #c1272d;
+      color: #fff;
+      font-size: 2.2rem;
+      font-weight: bold;
+      padding: 12px 35px;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(193,39,45,0.5);
+    }
+
+    .old-price {
+      color: #a09587;
+      text-decoration: line-through;
+      font-size: 1.1rem;
+    }
+
+    .badge-stock {
+      background: #007c5f;
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    .desc {
+      color: #5a4632;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      max-width: 780px;
+      margin: 0 auto 20px;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin: 25px 0;
+    }
+
+    .feature {
+      background: rgba(0,124,95,0.1);
+      border: 1px solid #007c5f;
+      border-radius: 30px;
+      padding: 10px 22px;
+      font-weight: 600;
+      color: #005f48;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #007c5f;
+      color: #fff;
+      border: none;
+      padding: 15px 45px;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background 0.3s, transform 0.2s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #005f48;
+      transform: translateY(-2px);
+    }
+
+    .trust {
+      text-align: center;
+      color: #7a6a55;
+      font-size: 0.9rem;
+      margin-top: 22px;
+    }
+
+    .stars {
+      color: #e8a00c;
+      letter-spacing: 3px;
+      font-size: 1.2rem;
+    }
+
+    /* --- Tabla especificaciones --- */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .specs-table td {
+      padding: 12px 15px;
+      border-bottom: 1px solid rgba(0,124,95,0.2);
+      vertical-align: top;
+    }
+
+    .specs-table tr:last-child td { border-bottom: none; }
+
+    .specs-table td:first-child {
+      font-weight: 700;
+      color: #007c5f;
+      width: 45%;
+    }
+
+    /* --- Beneficios --- */
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .benefit {
+      background: rgba(0,124,95,0.08);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid rgba(0,124,95,0.2);
+    }
+
+    .benefit .b-icon { font-size: 2rem; margin-bottom: 8px; }
+    .benefit h3 { color: #007c5f; font-size: 1.05rem; margin-bottom: 6px; }
+    .benefit p { color: #6b5a46; font-size: 0.9rem; line-height: 1.5; }
+
+    /* --- Reseñas --- */
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .review {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      border-left: 5px solid #007c5f;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    .review .r-stars { color: #e8a00c; margin-bottom: 8px; }
+    .review p { color: #5a4632; line-height: 1.6; font-size: 0.95rem; }
+    .review .r-name {
+      margin-top: 10px;
+      font-weight: 700;
+      color: #007c5f;
+      font-size: 0.9rem;
+    }
+
+    /* --- Preguntas --- */
+    .faq {
+      margin-top: 10px;
+    }
+
+    .faq-item {
+      margin-bottom: 14px;
+    }
+
+    .faq-item h3 {
+      color: #007c5f;
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .faq-item p {
+      color: #6b5a46;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 35px;
+      padding-top: 20px;
+      border-top: 2px solid rgba(193,39,45,0.4);
+      color: #6b5a46;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 700px) {
+      header h1 { font-size: 2rem; }
+      .gallery img { width: 160px; height: 160px; }
+      .price-tag { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>Macetas Milenarias</h1>
+      <p>Cerámica China Tradicional</p>
+      <div class="divider"></div>
+    </header>
+
+    <p class="tagline">
+      Piezas ancestrales inspiradas en la milenaria civilización china, elaboradas una a una
+      a mano con moldes de silicona, cemento y yeso, para traer el arte y la tradición oriental a tu hogar.
+    </p>
+
+    <!-- PRODUCTO -->
+    <div class="card product-main">
+      <h2><span class="icon">&#127801;</span> Maceta de Cerámica China</h2>
+      <p class="sub-title">Pieza única, hecha a mano con técnicas tradicionales</p>
+
+      <div class="gallery">
+        <img src="imagen1.png" alt="Maceta cerámica china vista 1">
+        <img src="imagen2.png" alt="Maceta cerámica china vista 2">
+        <img src="imagen3.png" alt="Maceta cerámica china vista 3">
+        <img src="imagen4.png" alt="Maceta cerámica china vista 4">
+      </div>
+
+      <div class="price-row">
+        <span class="old-price">$25.000</span>
+        <span class="price-tag">$20.000</span>
+        <span class="badge-stock">&#10003; En stock</span>
+      </div>
+
+      <p class="desc">
+        Maceta china <strong>hecha a mano con moldes de silicona, cemento y yeso</strong>, siguiendo
+        el proceso artesanal de la cerámica china clásica. Cada pieza reproduce los patrones
+        ornamentales característicos de la cultura milenaria: tonos esmaltados, diseños simétricos
+        y acabados elegantes que embellecen cualquier espacio. Gracias a su material de cemento y yeso,
+        es resistente, duradera y apta tanto para interior como para exterior.
+        Una pieza que combina tradición, arte y funcionalidad.
+      </p>
+
+      <div class="features">
+        <span class="feature">Hecha a mano</span>
+        <span class="feature">Moldes de silicona</span>
+        <span class="feature">Cemento y yeso</span>
+        <span class="feature">Resistente a la intemperie</span>
+        <span class="feature">Drenaje incluido</span>
+        <span class="feature">Diseño tradicional chino</span>
+      </div>
+
+      <button class="btn" onclick="alert('¡Gracias por tu interés! Maceta añadida a tu carrito por $20.000')">Comprar ahora</button>
+
+      <p class="trust">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><br>
+        <strong>5.0/5</strong> valoración promedio &nbsp;|&nbsp; +250 compras realizadas &nbsp;|&nbsp; Envío a todo el país
+      </p>
+    </div>
+
+    <!-- ESPECIFICACIONES -->
+    <div class="card">
+      <h2><span class="icon">&#128209;</span> Especificaciones</h2>
+      <p class="sub-title">Características técnicas del producto</p>
+      <table class="specs-table">
+        <tr><td>Material</td><td>Cemento y yeso, moldeado a mano con silicona</td></tr>
+        <tr><td>Elaboración</td><td>100% artesanal, piezas únicas</td></tr>
+        <tr><td>Altura</td><td>18 cm aprox.</td></tr>
+        <tr><td>Diámetro superior</td><td>15 cm aprox.</td></tr>
+        <tr><td>Peso</td><td>850 g aprox.</td></tr>
+        <tr><td>Acabado</td><td>Esmerilado y barnizado a mano</td></tr>
+        <tr><td>Drenaje</td><td>Sí, orificio inferior con rejilla</td></tr>
+        <tr><td>Uso</td><td>Interior y exterior</td></tr>
+      </table>
+    </div>
+
+    <!-- BENEFICIOS -->
+    <div class="card">
+      <h2><span class="icon">&#10024;</span> Beneficios</h2>
+      <p class="sub-title">¿Por qué elegir una Maceta Milenaria?</p>
+      <div class="benefits">
+        <div class="benefit">
+          <div class="b-icon">&#127912;</div>
+          <h3>Arte y tradición</h3>
+          <p>Diseño inspirado en la cerámica china que decora y aporta identidad cultural a tu hogar.</p>
+        </div>
+        <div class="benefit">
+          <div class="b-icon">&#10084;&#65039;</div>
+          <h3>Hecho a mano</h3>
+          <p>Cada maceta es elaborada artesanalmente, por lo que no hay dos piezas idénticas.</p>
+        </div>
+        <div class="benefit">
+          <div class="b-icon">&#128737;&#65039;</div>
+          <h3>Resistente</h3>
+          <p>Fabricada en cemento y yeso: soporta lluvia, sol y cambios de clima sin deteriorarse.</p>
+        </div>
+        <div class="benefit">
+          <div class="b-icon">&#127793;</div>
+          <h3>Ideal para plantas</h3>
+          <p>Gracias a su drenaje, mantiene la humedad adecuada y favorece el crecimiento saludable.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESEÑAS -->
+    <div class="card">
+      <h2><span class="icon">&#11088;</span> Valoraciones &nbsp;<span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0/5</h2>
+      <p class="sub-title">Opiniones de nuestros compradores</p>
+      <div class="reviews">
+        <div class="review">
+          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Excelente calidad, se nota que está hecha a mano. El diseño es precioso y realza la casa."</p>
+          <div class="r-name">— María G.</div>
+        </div>
+        <div class="review">
+          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Muy resistente y bonita, ideal para mi jardín. El acabado es impecable, la recomiendo."</p>
+          <div class="r-name">— Carlos R.</div>
+        </div>
+        <div class="review">
+          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Una pieza de arte. El envío fue rápido y llegó perfectamente protegida. 100% recomendada."</p>
+          <div class="r-name">— Lucía T.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREGUNTAS -->
+    <div class="card">
+      <h2><span class="icon">&#10067;</span> Preguntas frecuentes</h2>
+      <p class="sub-title">Resolvemos tus dudas</p>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>¿La maceta sirve para exterior?</h3>
+          <p>Sí, al estar fabricada en cemento y yeso soporta perfectamente las condiciones exteriores.</p>
+        </div>
+        <div class="faq-item">
+          <h3>¿Tiene agujero de drenaje?</h3>
+          <p>Sí, cuenta con orificio inferior con rejilla para evitar el exceso de agua.</p>
+        </div>
+        <div class="faq-item">
+          <h3>¿Cómo se limpia?</h3>
+          <p>Con un paño húmedo. No requiere productos especiales para su mantenimiento.</p>
+        </div>
+        <div class="faq-item">
+          <h3>¿Los colores pueden variar?</h3>
+          <p>Al ser piezas artesanales hechas a mano, puede haber pequeñas variaciones que las hacen únicas.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Macetas Milenarias &copy; 2026 &mdash; Cerámica china tradicional<br>
+      Envíos a todo el país &nbsp;|&nbsp; Pago seguro &nbsp;|&nbsp; Garantía de satisfacción
+    </footer>
+
+  </div>
+</body>
+</html>
