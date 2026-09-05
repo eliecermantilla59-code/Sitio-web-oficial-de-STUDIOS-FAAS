@@ -343,6 +343,106 @@
       line-height: 1.8;
     }
 
+    /* --- Modal de pedido --- */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.55);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.show { display: flex; }
+
+    .modal-box {
+      background: #fffdf7;
+      border: 2px solid #c1272d;
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 460px;
+      width: 100%;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+    }
+
+    .modal-box h2 {
+      color: #007c5f;
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .modal-box .modal-sub {
+      color: #7a6a55;
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    .modal-box label {
+      display: block;
+      font-weight: 700;
+      color: #005f48;
+      margin: 14px 0 4px;
+      font-size: 0.9rem;
+    }
+
+    .modal-box input,
+    .modal-box textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid rgba(0,124,95,0.4);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      background: #fff;
+      color: #3d2b1f;
+    }
+
+    .modal-box textarea { resize: vertical; min-height: 70px; }
+
+    .modal-box .modal-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .modal-box .btn-submit {
+      flex: 1;
+      background: #007c5f;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1.05rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background 0.3s;
+    }
+
+    .modal-box .btn-cancel {
+      background: transparent;
+      color: #7a6a55;
+      border: 1px solid rgba(0,124,95,0.4);
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .modal-box .btn-submit:hover { background: #005f48; }
+    .modal-box .btn-cancel:hover { background: rgba(0,124,95,0.08); }
+
+    .modal-box .form-status {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: #005f48;
+    }
+
     @media (max-width: 700px) {
       header h1 { font-size: 2rem; }
       .gallery img { width: 160px; height: 160px; }
@@ -407,7 +507,7 @@
         <span class="feature">Diseño tradicional chino</span>
       </div>
 
-      <button class="btn" onclick="alert('¡Gracias por tu interés! Maceta añadida a tu carrito por $20.000')">Comprar ahora</button>
+      <button class="btn" onclick="openOrderForm()">Comprar ahora</button>
 
       <p class="trust">
         <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><br>
@@ -516,5 +616,43 @@
     </footer>
 
   </div>
+
+  <!-- Modal de pedido (Formspree) -->
+  <div class="modal-overlay" id="orderModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+      <h2 id="orderModalTitle">Completar mi pedido</h2>
+      <p class="modal-sub">Maceta de Cerámica China &mdash; $20.000</p>
+
+      <!-- NOTA: Reemplaza TU_FORM_ID por tu ID o el correo de tu cuenta de Formspree.
+           La acción correcta quedará así: https://formspree.io/f/abcd1234 -->
+      <form id="orderForm" action="https://formspree.io/f/TU_FORM_ID" method="POST">
+        <label for="buyerEmail">Correo electrónico</label>
+        <input type="email" id="buyerEmail" name="email" required placeholder="tucorreo@ejemplo.com">
+
+        <label for="buyerNotes">Nombre o notas adicionales <em>(opcional)</em></label>
+        <textarea id="buyerNotes" name="notes" placeholder="Nombre, dirección de envío, comentarios..."></textarea>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn-submit">Enviar Pedido</button>
+          <button type="button" class="btn-cancel" onclick="closeOrderForm()">Cancelar</button>
+        </div>
+        <p class="form-status" id="formStatus" hidden></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openOrderForm() {
+      document.getElementById('orderModal').classList.add('show');
+    }
+
+    function closeOrderForm() {
+      document.getElementById('orderModal').classList.remove('show');
+    }
+
+    document.getElementById('orderModal').addEventListener('click', function (e) {
+      if (e.target === this) closeOrderForm();
+    });
+  </script>
 </body>
 </html>
