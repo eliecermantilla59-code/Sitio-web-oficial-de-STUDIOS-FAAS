@@ -512,7 +512,7 @@
       </div>
 
       <div id="form-container">
-        <form id="buyForm" class="buy-form" action="https://formsubmit.co/ajax/eliecermantilla59@gmail.com" method="POST" novalidate>
+        <form id="buyForm" class="buy-form" action="https://formsubmit.co/eliecermantilla59@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="¡Nuevo mensaje sobre Macetas Milenarias!">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
@@ -639,39 +639,5 @@
     </footer>
 
   </div>
-
-  <script>
-    document.getElementById('buyForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-      const form = this;
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-
-      fetch(form.action, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Error al enviar el mensaje');
-          }
-          return response.json();
-        })
-        .then(data => {
-          if (data.success === 'true' || data.success === true) {
-            document.getElementById('form-container').innerHTML = '<p class="exito">¡Gracias por tu mensaje! Fabio Ardila se pondrá en contacto contigo muy pronto.</p>';
-          } else {
-            alert('Hubo un problema al enviar el mensaje.');
-          }
-        })
-        .catch(error => {
-          alert('Error al enviar el mensaje. Inténtalo de nuevo.');
-        });
-    });
-  </script>
 </body>
 </html>
