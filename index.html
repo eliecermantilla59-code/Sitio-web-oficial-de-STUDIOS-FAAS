@@ -343,44 +343,33 @@
       line-height: 1.8;
     }
 
-    /* --- Modal de pedido --- */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.55);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .modal-overlay.show { display: flex; }
-
-    .modal-box {
+    /* --- Formulario de compra --- */
+    .buy-form {
+      max-width: 460px;
+      margin: 0 auto;
       background: #fffdf7;
       border: 2px solid #c1272d;
       border-radius: 16px;
-      padding: 30px;
-      max-width: 460px;
-      width: 100%;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+      padding: 28px 30px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      text-align: left;
     }
 
-    .modal-box h2 {
+    .buy-form h3 {
       color: #007c5f;
-      font-size: 1.5rem;
-      margin-bottom: 6px;
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+      text-align: center;
     }
 
-    .modal-box .modal-sub {
+    .buy-form .form-sub {
       color: #7a6a55;
       font-size: 0.9rem;
       margin-bottom: 18px;
+      text-align: center;
     }
 
-    .modal-box label {
+    .buy-form label {
       display: block;
       font-weight: 700;
       color: #005f48;
@@ -388,7 +377,7 @@
       font-size: 0.9rem;
     }
 
-    .modal-box input {
+    .buy-form input {
       width: 100%;
       padding: 10px 12px;
       border: 1px solid rgba(0,124,95,0.4);
@@ -400,53 +389,40 @@
       transition: border-color 0.3s, box-shadow 0.3s;
     }
 
-    .modal-box input:focus {
+    .buy-form input:focus {
       outline: none;
       border-color: #007c5f;
       box-shadow: 0 0 0 3px rgba(0,124,95,0.15);
     }
 
-    .modal-box input::placeholder { color: #a09587; }
+    .buy-form input::placeholder { color: #a09587; }
 
-    .modal-box .modal-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 24px;
-      flex-wrap: wrap;
-    }
-
-    .modal-box .btn-submit {
-      flex: 1;
+    .buy-form .btn {
+      width: 100%;
+      margin-top: 22px;
       background: #007c5f;
       color: #fff;
       border: none;
-      padding: 12px 20px;
-      font-size: 1.05rem;
+      padding: 14px 20px;
+      font-size: 1.1rem;
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
       letter-spacing: 1px;
       text-transform: uppercase;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s;
     }
 
-    .modal-box .btn-cancel {
-      background: transparent;
-      color: #7a6a55;
-      border: 1px solid rgba(0,124,95,0.4);
-      padding: 12px 20px;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
+    .buy-form .btn:hover {
+      background: #005f48;
+      transform: translateY(-2px);
     }
 
-    .modal-box .btn-submit:hover { background: #005f48; }
-    .modal-box .btn-cancel:hover { background: rgba(0,124,95,0.08); }
-
-    .modal-box .form-status {
-      margin-top: 12px;
-      font-size: 0.9rem;
-      color: #005f48;
+    .buy-form .form-note {
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: #a09587;
+      text-align: center;
     }
 
     @media (max-width: 700px) {
@@ -513,7 +489,22 @@
         <span class="feature">Diseño tradicional chino</span>
       </div>
 
-      <button class="btn" onclick="openOrderForm()">Comprar ahora</button>
+      <form class="buy-form" action="https://formsubmit.co/eliecermantilla59@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Nuevo pedido - Maceta de Cerámica China">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <h3>Completa tu pedido</h3>
+        <p class="form-sub">Maceta de Cerámica China &mdash; $20.000</p>
+
+        <label for="buyerEmail">Correo electrónico</label>
+        <input type="email" id="buyerEmail" name="email" placeholder="tucorreo@ejemplo.com" required>
+
+        <label for="buyerContact">Nombre o teléfono</label>
+        <input type="text" id="buyerContact" name="nombre" placeholder="Tu nombre o número de teléfono">
+
+        <button type="submit" class="btn">Confirmar y Comprar</button>
+        <p class="form-note">Al enviar, tu pedido llegará directamente a nuestro equipo.</p>
+      </form>
 
       <p class="trust">
         <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><br>
@@ -622,41 +613,5 @@
     </footer>
 
   </div>
-
-  <!-- Modal de pedido (Formspree) -->
-  <div class="modal-overlay" id="orderModal" aria-hidden="true">
-    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
-      <h2 id="orderModalTitle">Completar mi pedido</h2>
-      <p class="modal-sub">Maceta de Cerámica China &mdash; $20.000</p>
-
-      <form id="orderForm" action="https://formspree.io/f/eliecermantilla59@gmail.com" method="POST">
-        <label for="buyerEmail">Correo electrónico</label>
-        <input type="email" id="buyerEmail" name="email" required placeholder="tucorreo@ejemplo.com">
-
-        <label for="buyerName">Nombre <em>(opcional)</em></label>
-        <input type="text" id="buyerName" name="name" placeholder="Tu nombre">
-
-        <div class="modal-actions">
-          <button type="submit" class="btn-submit">Enviar Pedido</button>
-          <button type="button" class="btn-cancel" onclick="closeOrderForm()">Cancelar</button>
-        </div>
-        <p class="form-status" id="formStatus" hidden></p>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    function openOrderForm() {
-      document.getElementById('orderModal').classList.add('show');
-    }
-
-    function closeOrderForm() {
-      document.getElementById('orderModal').classList.remove('show');
-    }
-
-    document.getElementById('orderModal').addEventListener('click', function (e) {
-      if (e.target === this) closeOrderForm();
-    });
-  </script>
 </body>
 </html>
