@@ -388,8 +388,7 @@
       font-size: 0.9rem;
     }
 
-    .modal-box input,
-    .modal-box textarea {
+    .modal-box input {
       width: 100%;
       padding: 10px 12px;
       border: 1px solid rgba(0,124,95,0.4);
@@ -398,9 +397,16 @@
       font-size: 1rem;
       background: #fff;
       color: #3d2b1f;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
 
-    .modal-box textarea { resize: vertical; min-height: 70px; }
+    .modal-box input:focus {
+      outline: none;
+      border-color: #007c5f;
+      box-shadow: 0 0 0 3px rgba(0,124,95,0.15);
+    }
+
+    .modal-box input::placeholder { color: #a09587; }
 
     .modal-box .modal-actions {
       display: flex;
@@ -623,14 +629,12 @@
       <h2 id="orderModalTitle">Completar mi pedido</h2>
       <p class="modal-sub">Maceta de Cerámica China &mdash; $20.000</p>
 
-      <!-- NOTA: Reemplaza TU_FORM_ID por tu ID o el correo de tu cuenta de Formspree.
-           La acción correcta quedará así: https://formspree.io/f/abcd1234 -->
-      <form id="orderForm" action="https://formspree.io/f/TU_FORM_ID" method="POST">
+      <form id="orderForm" action="https://formspree.io/f/eliecermantilla59@gmail.com" method="POST">
         <label for="buyerEmail">Correo electrónico</label>
         <input type="email" id="buyerEmail" name="email" required placeholder="tucorreo@ejemplo.com">
 
-        <label for="buyerNotes">Nombre o notas adicionales <em>(opcional)</em></label>
-        <textarea id="buyerNotes" name="notes" placeholder="Nombre, dirección de envío, comentarios..."></textarea>
+        <label for="buyerName">Nombre <em>(opcional)</em></label>
+        <input type="text" id="buyerName" name="name" placeholder="Tu nombre">
 
         <div class="modal-actions">
           <button type="submit" class="btn-submit">Enviar Pedido</button>
