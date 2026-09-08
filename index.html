@@ -503,6 +503,34 @@
       .gallery img { width: 160px; height: 160px; }
       .price-tag { font-size: 1.8rem; }
     }
+
+    /* Prevenir desbordamiento de valoraciones y puntuacion en celulares */
+    @media (max-width: 768px) {
+      .valoraciones-header,
+      .rating-container,
+      .reviews-title {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .rating-score,
+      .stars {
+        font-size: 1rem !important;
+        white-space: nowrap;
+      }
+
+      .card,
+      .review-card {
+        max-width: 100% !important;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+    }
   </style>
 </head>
 <body>
@@ -696,36 +724,32 @@
   <a class="whatsapp-float" href="https://wa.me/573243522099?text=Hola,%20estoy%20interesado%20en%20una%20Maceta%20Milenaria" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">&#128172;</a>
 
   <script>
-    document.getElementById('buyForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-      const form = this;
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
+    document.addEventListener("DOMContentLoaded", function() {
+      const form = document.getElementById("contact-form") || document.querySelector("form");
+      if (form) {
+        form.addEventListener("submit", function(e) {
+          e.preventDefault();
+          const formData = new FormData(form);
+          const data = Object.fromEntries(formData.entries());
 
-      fetch('https://formsubmit.co/ajax/eliecermantilla59@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Error al enviar el mensaje');
-          }
-          return response.json();
-        })
-        .then(data => {
-          if (data.success === 'true' || data.success === true) {
-            document.getElementById('form-container').innerHTML = '<p class="exito">¡Gracias por tu mensaje! Una creación de Fabio Ardila y STUDIOS FAAS se pondrá en contacto contigo muy pronto.</p>';
-          } else {
-            alert('Hubo un problema al enviar el mensaje.');
-          }
-        })
-        .catch(error => {
-          alert('Error al enviar el mensaje. Inténtalo de nuevo.');
+          fetch("https://formsubmit.co/ajax/eliecermantilla59@gmail.com", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(data)
+          })
+          .then(response => response.json())
+          .then(result => {
+            const container = document.getElementById("form-container") || form.parentElement;
+            container.innerHTML = '<p class="exito" style="color: #2e7d32; font-weight: bold; padding: 15px; text-align: center;">¡Gracias por tu mensaje! Una creación de Fabio Ardila y STUDIOS FAAS se pondrá en contacto contigo muy pronto.</p>';
+          })
+          .catch(error => {
+            alert("Error al enviar el mensaje. Inténtalo de nuevo o contáctanos por WhatsApp.");
+          });
         });
+      }
     });
   </script>
 </body>
