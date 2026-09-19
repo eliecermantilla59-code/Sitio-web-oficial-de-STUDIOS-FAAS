@@ -717,6 +717,23 @@
       </div>
     </div>
 
+    <!-- CÓDIGO QR -->
+    <div class="card qr-section" style="text-align: center;">
+      <h2><span class="icon">📱</span> Escanea o comparte nuestra tienda</h2>
+      <p class="sub-title">Lleva nuestro catálogo directo a tu celular</p>
+
+      <div style="margin: 20px 0;">
+        <img src="qr-macetas.png" id="qr-img" alt="Código QR Macetas Milenarias" style="width: 200px; height: 200px; border-radius: 12px; border: 2px solid #c1272d; padding: 5px; background: #fff;">
+      </div>
+
+      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+        <button class="btn" style="padding: 10px 20px; font-size: 0.9rem;" onclick="copiarEnlace()">📋 Copiar enlace</button>
+        <a href="qr-macetas.png" download="QR-Macetas-Milenarias.png" class="btn" style="padding: 10px 20px; font-size: 0.9rem; text-decoration: none;">📥 Descargar QR</a>
+        <button class="btn" style="padding: 10px 20px; font-size: 0.9rem; background: #005f48;" onclick="compartirSitio()">📤 Compartir</button>
+      </div>
+      <p id="copiado-msg" style="color: #007c5f; font-weight: bold; margin-top: 10px; display: none;">¡Enlace copiado al portapapeles!</p>
+    </div>
+
     <footer>
       Macetas Milenarias &copy; 2026 &mdash; Una creación de Fabio Ardila y STUDIOS FAAS<br>
       Envíos a todo el país &nbsp;|&nbsp; Pago seguro &nbsp;|&nbsp; Garantía de satisfacción
@@ -754,6 +771,26 @@
         });
       }
     });
+
+    function copiarEnlace() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const msg = document.getElementById('copiado-msg');
+        msg.style.display = 'block';
+        setTimeout(() => { msg.style.display = 'none'; }, 3000);
+      });
+    }
+
+    function compartirSitio() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Macetas Milenarias - Cerámica China',
+          text: '¡Mira estas hermosas macetas artesanales hechas a mano!',
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        copiarEnlace();
+      }
+    }
   </script>
 </body>
 </html>
