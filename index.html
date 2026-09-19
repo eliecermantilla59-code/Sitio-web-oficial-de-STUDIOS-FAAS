@@ -501,6 +501,54 @@
       transform: translateY(-2px);
     }
 
+    /* --- Estilos para la sección QR --- */
+    .qr-contenedor {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #eee;
+      margin-top: 40px;
+    }
+    .qr-titulo {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 5px;
+    }
+    .qr-subtitulo {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .qr-marco {
+      display: inline-block;
+      border: 2px solid #c1272d;
+      border-radius: 15px;
+      padding: 10px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 10px;
+    }
+    .qr-imagen {
+      width: 180px;
+      height: 180px;
+      border-radius: 10px;
+      display: block;
+    }
+    .qr-etiqueta {
+      font-size: 0.8rem;
+      color: #c1272d;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .qr-botones {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-qr {
+      font-size: 0.9rem;
+      padding: 10px 18px;
+    }
     @media (max-width: 700px) {
       header h1 { font-size: 2rem; }
       .gallery img { width: 160px; height: 160px; }
@@ -718,21 +766,22 @@
     </div>
 
     <!-- CÓDIGO QR -->
-    <div class="card qr-section" style="text-align: center;">
-      <h2><span class="icon">📱</span> Escanea o comparte nuestra tienda</h2>
-      <p class="sub-title">Lleva nuestro catálogo directo a tu celular</p>
+    <section class="card qr-contenedor">
+      <h2 class="qr-titulo">📱 Lleva nuestra tienda en tu bolsillo</h2>
+      <p class="qr-subtitulo">Escanea este código para ver el catálogo desde tu celular</p>
 
-      <div style="margin: 20px 0;">
-        <img src="qr-macetas.png" id="qr-img" alt="Código QR Macetas Milenarias" style="width: 200px; height: 200px; border-radius: 12px; border: 2px solid #c1272d; padding: 5px; background: #fff;">
+      <div class="qr-marco">
+        <img src="qr-macetas.png" alt="Código QR Macetas Milenarias" class="qr-imagen">
       </div>
+      <p class="qr-etiqueta">STUDIOS FAAS - Macetas Milenarias</p>
 
-      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-        <button class="btn" style="padding: 10px 20px; font-size: 0.9rem;" onclick="copiarEnlace()">📋 Copiar enlace</button>
-        <a href="qr-macetas.png" download="QR-Macetas-Milenarias.png" class="btn" style="padding: 10px 20px; font-size: 0.9rem; text-decoration: none;">📥 Descargar QR</a>
-        <button class="btn" style="padding: 10px 20px; font-size: 0.9rem; background: #005f48;" onclick="compartirSitio()">📤 Compartir</button>
+      <div class="qr-botones">
+        <button class="btn btn-qr" onclick="copiarEnlace()">📋 Copiar enlace</button>
+        <a href="qr-macetas.png" download="QR-Macetas-Milenarias.png" class="btn btn-qr">📥 Descargar QR</a>
+        <button class="btn btn-qr" style="background: #005f48;" onclick="compartirSitio()">📤 Compartir</button>
       </div>
       <p id="copiado-msg" style="color: #007c5f; font-weight: bold; margin-top: 10px; display: none;">¡Enlace copiado al portapapeles!</p>
-    </div>
+    </section>
 
     <footer>
       Macetas Milenarias &copy; 2026 &mdash; Una creación de Fabio Ardila y STUDIOS FAAS<br>
