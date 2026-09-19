@@ -6,6 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://formsubmit.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; frame-ancestors 'none';">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" type="image/jpeg" href="logo.jpeg">
   <title>Macetas Milenarias - Cerámica China</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -776,7 +777,7 @@
       <p class="qr-etiqueta">STUDIOS FAAS - Macetas Milenarias</p>
 
       <div class="qr-botones">
-        <button class="btn btn-qr" onclick="copiarEnlace()">📋 Copiar enlace</button>
+        <button class="btn btn-qr btn-copiar" onclick="copiarEnlace()">📋 Copiar enlace</button>
         <a href="https://quickchart.io/qr?text=https://eliecermantilla59-code.github.io/Sitio-web-oficial-de-STUDIOS-FAAS/&size=300&download=true" download="QR-Macetas-Milenarias.png" class="btn btn-qr">📥 DESCARGAR QR</a>
         <button class="btn btn-qr" style="background: #005f48;" onclick="compartirSitio()">📤 Compartir</button>
       </div>
@@ -822,23 +823,27 @@
     });
 
     function copiarEnlace() {
-      navigator.clipboard.writeText(window.location.href).then(() => {
-        const msg = document.getElementById('copiado-msg');
-        msg.style.display = 'block';
-        setTimeout(() => { msg.style.display = 'none'; }, 3000);
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        const btn = document.querySelector('.btn-copiar');
+        if (btn) {
+          const textoOriginal = btn.innerHTML;
+          btn.innerHTML = '¡Copiado! ✓';
+          btn.style.backgroundColor = '#28a745';
+          btn.style.color = '#ffffff';
+
+          setTimeout(() => {
+            btn.innerHTML = textoOriginal;
+            btn.style.backgroundColor = '';
+            btn.style.color = '';
+          }, 2000);
+        }
       });
     }
 
     function compartirSitio() {
-      if (navigator.share) {
-        navigator.share({
-          title: 'Macetas Milenarias - Cerámica China',
-          text: '¡Mira estas hermosas macetas artesanales hechas a mano!',
-          url: window.location.href
-        }).catch(() => {});
-      } else {
-        copiarEnlace();
-      }
+      const mensaje = encodeURIComponent("¡Hola! Mira las macetas artesanales de STUDIOS FAAS: " + window.location.href);
+      window.open(`https://wa.me/?text=${mensaje}`, '_blank');
     }
   </script>
 </body>
