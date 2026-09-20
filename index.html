@@ -39,10 +39,19 @@
       min-height: 100vh;
     }
 
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
     .container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 0 20px 60px;
+    }
+
+    @media (min-width: 1400px) {
+      .container { max-width: 1100px; }
     }
 
     /* --- Encabezado minimalista --- */
@@ -243,6 +252,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      min-height: 44px;
       background: var(--accent);
       color: #fff;
       border: none;
@@ -322,11 +332,12 @@
     .buy-form input,
     .buy-form textarea {
       width: 100%;
+      min-height: 48px;
       padding: 12px 14px;
       border: 1px solid #e2ddd6;
       border-radius: 10px;
       font-family: inherit;
-      font-size: 0.98rem;
+      font-size: 16px;
       background: #fff;
       color: var(--text);
       transition: border-color 0.25s ease, box-shadow 0.25s ease;
@@ -378,6 +389,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      min-height: 48px;
       max-width: 480px;
       margin: 16px auto 0;
       background: var(--wa);
@@ -642,7 +654,7 @@
 <body>
   <header class="site-header">
     <div class="logo-frame">
-      <img src="logo.jpeg" alt="Logo de STUDIOS FAAS" onerror="this.style.display='none'">
+      <img src="logo.jpeg" alt="Logo de STUDIOS FAAS" width="112" height="112" decoding="async" onerror="this.style.display='none'">
     </div>
     <h1>Macetas Milenarias</h1>
     <p class="header-sub">Cerámica China Tradicional</p>
@@ -661,15 +673,15 @@
       <p class="sub-title">Pieza única, hecha a mano con técnicas tradicionales</p>
 
       <div class="gallery">
-        <img src="imagen1.png" alt="Maceta cerámica china vista 1">
-        <img src="imagen2.png" alt="Maceta cerámica china vista 2">
-        <img src="imagen3.png" alt="Maceta cerámica china vista 3">
-        <img src="imagen4.png" alt="Maceta cerámica china vista 4">
-        <img src="imagen5.png" alt="Maceta cerámica china vista 5">
-        <img src="imagen6.jpg" alt="Maceta cerámica china vista 6">
-        <img src="imagen7.jpg" alt="Maceta cerámica china vista 7">
-        <img src="imagen8.jpg" alt="Maceta cerámica china vista 8">
-        <img src="imagen9.jpg" alt="Maceta cerámica china vista 9">
+        <img src="imagen1.png" alt="Maceta cerámica china vista 1" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen2.png" alt="Maceta cerámica china vista 2" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen3.png" alt="Maceta cerámica china vista 3" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen4.png" alt="Maceta cerámica china vista 4" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen5.png" alt="Maceta cerámica china vista 5" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen6.jpg" alt="Maceta cerámica china vista 6" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen7.jpg" alt="Maceta cerámica china vista 7" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen8.jpg" alt="Maceta cerámica china vista 8" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen9.jpg" alt="Maceta cerámica china vista 9" loading="lazy" decoding="async" width="320" height="320">
       </div>
 
       <div class="price-row">
@@ -791,7 +803,7 @@
         </div>
         <div class="review">
           <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <img src="imagen-comentario.jpg" alt="Foto de la maceta enviada por un comprador" class="r-img">
+          <img src="imagen-comentario.jpg" alt="Foto de la maceta enviada por un comprador" class="r-img" loading="lazy" decoding="async" width="640" height="480">
         </div>
       </div>
     </section>
@@ -826,7 +838,7 @@
       <p class="qr-subtitulo">Escanea este código para ver el catálogo desde tu celular</p>
 
       <div class="qr-marco">
-        <img src="https://quickchart.io/qr?text=https://eliecermantilla59-code.github.io/Sitio-web-oficial-de-STUDIOS-FAAS/&size=200" alt="Código QR Macetas Milenarias" class="qr-imagen">
+        <img src="https://quickchart.io/qr?text=https://eliecermantilla59-code.github.io/Sitio-web-oficial-de-STUDIOS-FAAS/&size=200" alt="Código QR Macetas Milenarias" class="qr-imagen" loading="lazy" decoding="async" width="180" height="180">
       </div>
       <p class="qr-etiqueta">STUDIOS FAAS - Macetas Milenarias</p>
 
