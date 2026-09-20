@@ -644,7 +644,7 @@
       </div>
 
       <div id="form-container">
-        <form id="buyForm" class="buy-form" action="https://formsubmit.co/eliecermantilla59@gmail.com" method="POST">
+        <form id="buyForm" class="buy-form" action="https://formsubmit.co/ajax/0e58a3ed0db71cfb69e099c95f22c987" method="POST">
           <input type="hidden" name="_subject" value="¡Nuevo mensaje sobre Macetas Milenarias!">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
@@ -803,7 +803,7 @@
           const formData = new FormData(form);
           const data = Object.fromEntries(formData.entries());
 
-          fetch("https://formsubmit.co/ajax/eliecermantilla59@gmail.com", {
+          fetch("https://formsubmit.co/ajax/0e58a3ed0db71cfb69e099c95f22c987", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -814,7 +814,7 @@
           .then(response => response.json())
           .then(result => {
             const container = document.getElementById("form-container") || form.parentElement;
-            container.innerHTML = '<p class="exito" style="color: #2e7d32; font-weight: bold; padding: 15px; text-align: center;">¡Gracias por tu mensaje! Una creación de Fabio Ardila y STUDIOS FAAS se pondrá en contacto contigo muy pronto.</p>';
+            container.innerHTML = '<p class="exito" style="color: #2e7d32; font-weight: bold; padding: 15px; text-align: center;">¡Gracias por tu mensaje! Fabio Ardila se pondrá en contacto contigo muy pronto.</p>';
           })
           .catch(error => {
             alert("Error al enviar el mensaje. Inténtalo de nuevo o contáctanos por WhatsApp.");
@@ -847,5 +847,10 @@
       window.open(`https://wa.me/?text=${mensaje}`, '_blank');
     }
   </script>
+
+  <footer style="text-align: center; font-size: 11px; color: #777777; margin-top: 40px; padding: 15px 0; border-top: 1px solid #eeeeee;">
+    <p style="margin: 3px 0;">Programado por Fabio Ardila y STUDIOS FAAS</p>
+    <p style="margin: 3px 0;">Todos los derechos reservados a Fabio Ardila y STUDIOS FAAS</p>
+  </footer>
 </body>
 </html>
