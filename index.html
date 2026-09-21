@@ -18,14 +18,10 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #f8f7f5;
       --surface: #ffffff;
       --text: #2d3748;
       --text-muted: #718096;
       --accent: #c1352b;
-      --accent-dark: #a02a22;
-      --wa: #25d366;
-      --wa-dark: #1eb857;
       --font-heading: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
       --emerald-grad: linear-gradient(180deg, #5eead4 0%, #10b981 48%, #047857 100%);
       --ruby-grad: linear-gradient(180deg, #ff7a6e 0%, #dc2626 50%, #991b1b 100%);
@@ -786,31 +782,16 @@
       .qr-botones .btn { width: 100%; }
       .whatsapp-btn { max-width: 100%; }
       .buy-form { padding: 26px 20px; }
-      .site-header { padding-top: 44px; }
     }
 
     /* Prevenir desbordamiento de valoraciones y puntuacion en celulares */
     @media (max-width: 768px) {
-      .valoraciones-header,
-      .rating-container,
-      .reviews-title {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      .rating-score,
       .stars {
         font-size: 1rem !important;
         white-space: nowrap;
       }
 
-      .card,
-      .review-card {
+      .card {
         max-width: 100% !important;
         overflow: hidden;
         box-sizing: border-box;
