@@ -27,6 +27,10 @@
       --wa: #25d366;
       --wa-dark: #1eb857;
       --font-heading: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --ema-facet:
+        linear-gradient(115deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.06) 16%, transparent 26%, transparent 74%, rgba(255, 255, 255, 0.12) 90%, rgba(255, 255, 255, 0.36) 100%),
+        linear-gradient(65deg, rgba(0, 0, 0, 0.16) 0%, transparent 28%, transparent 72%, rgba(255, 255, 255, 0.24) 100%),
+        linear-gradient(135deg, #00ff7f 0%, #00e676 36%, #05c46b 68%, #028a52 100%);
       --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.08);
       --shadow-md: 0 20px 45px -12px rgba(0, 0, 0, 0.16);
       --shadow-lg: 0 30px 60px -18px rgba(0, 0, 0, 0.22);
@@ -127,19 +131,18 @@
 
     .header-author {
       position: relative;
-      overflow: hidden;
       display: inline-block;
       margin-top: 14px;
       font-size: 0.82rem;
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--accent);
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 241, 230, 0.62));
-      border: 1px solid rgba(193, 53, 43, 0.28);
-      border-radius: 999px;
-      padding: 7px 16px;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 6px 16px -8px rgba(193, 53, 43, 0.3);
+      color: #ffffff;
+      background: var(--ema-facet);
+      padding: 8px 18px;
+      clip-path: polygon(7% 0%, 93% 0%, 100% 12%, 100% 88%, 93% 100%, 7% 100%, 0% 88%, 0% 12%);
+      filter: drop-shadow(0 4px 10px rgba(0, 230, 118, 0.35));
+      will-change: transform, opacity;
     }
 
     .tagline {
@@ -231,32 +234,28 @@
 
     .price-tag {
       position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #a82921 0%, #c1352b 50%, #e2543c 80%, #c1352b 100%);
+      background: var(--ema-facet);
       color: #fff;
       font-family: var(--font-heading);
       font-size: 2rem;
       font-weight: 800;
       letter-spacing: -0.01em;
-      padding: 10px 34px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      box-shadow:
-        0 12px 26px -12px rgba(193, 53, 43, 0.55),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      padding: 12px 36px;
+      clip-path: polygon(6% 0%, 94% 0%, 100% 12%, 100% 88%, 94% 100%, 6% 100%, 0% 88%, 0% 12%);
+      filter: drop-shadow(0 10px 20px rgba(0, 230, 118, 0.4)) drop-shadow(0 0 12px rgba(0, 255, 127, 0.4));
+      will-change: transform, opacity;
     }
 
     .badge-stock {
       position: relative;
-      overflow: hidden;
-      background: linear-gradient(145deg, rgba(240, 255, 245, 0.85), rgba(219, 245, 228, 0.55));
-      color: #1a9e4e;
-      border: 1px solid rgba(37, 211, 102, 0.35);
-      padding: 6px 16px;
-      border-radius: 999px;
+      color: #f0fff7;
+      background: var(--ema-facet);
+      padding: 8px 18px;
+      clip-path: polygon(7% 0%, 93% 0%, 100% 12%, 100% 88%, 93% 100%, 7% 100%, 0% 88%, 0% 12%);
       font-size: 0.85rem;
       font-weight: 700;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 6px 16px -8px rgba(37, 211, 102, 0.35);
+      filter: drop-shadow(0 4px 10px rgba(0, 230, 118, 0.35));
+      will-change: transform, opacity;
     }
 
     .desc {
@@ -277,107 +276,136 @@
 
     .feature {
       position: relative;
-      overflow: hidden;
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.85), rgba(244, 238, 228, 0.55));
-      border: 1px solid rgba(200, 178, 148, 0.45);
-      border-radius: 999px;
-      padding: 9px 20px;
+      color: #f0fff7;
+      background: var(--ema-facet);
+      padding: 10px 22px;
       font-weight: 600;
       font-size: 0.88rem;
-      color: #4a5568;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 6px 16px -8px rgba(45, 55, 72, 0.2);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      clip-path: polygon(7% 0%, 93% 0%, 100% 12%, 100% 88%, 93% 100%, 7% 100%, 0% 88%, 0% 12%);
+      filter: drop-shadow(0 4px 10px rgba(0, 230, 118, 0.3));
+      transition: transform 0.25s ease, filter 0.25s ease;
+      will-change: transform, opacity;
     }
 
     .feature:hover {
       transform: translateY(-2px);
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 242, 234, 0.7));
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 12px 22px -10px rgba(45, 55, 72, 0.3);
+      filter: drop-shadow(0 8px 14px rgba(0, 255, 127, 0.45)) brightness(1.08);
     }
 
     /* --- Botones --- */
     .btn {
       position: relative;
-      overflow: hidden;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       min-height: 46px;
-      background: linear-gradient(135deg, #a82921 0%, #c1352b 45%, #e2543c 75%, #c1352b 100%);
+      background: var(--ema-facet);
       color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.28);
       padding: 13px 28px;
       font-size: 0.98rem;
       font-weight: 700;
       font-family: inherit;
-      border-radius: 999px;
       cursor: pointer;
       letter-spacing: 0.02em;
       text-decoration: none;
-      box-shadow:
-        0 10px 22px -8px rgba(193, 53, 43, 0.55),
-        0 0 16px -2px rgba(231, 76, 60, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-      will-change: transform;
-    }
-
-    .btn::after {
-      content: "";
-      position: absolute;
-      top: -25%;
-      bottom: -25%;
-      left: -12%;
-      width: 30%;
-      background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.5) 45%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0.5) 55%, transparent 100%);
-      transform: translate3d(-260%, 0, 0) skewX(-18deg);
-      animation: brilloBotones 3s ease-in-out infinite;
-      pointer-events: none;
+      filter: drop-shadow(0 8px 18px rgba(0, 230, 118, 0.4)) drop-shadow(0 0 10px rgba(0, 255, 127, 0.35));
+      transition: transform 0.3s ease, filter 0.3s ease;
       will-change: transform;
     }
 
     .btn:hover {
       transform: translateY(-3px);
-      filter: brightness(1.06);
-      box-shadow:
-        0 14px 26px -10px rgba(193, 53, 43, 0.6),
-        0 0 22px -2px rgba(231, 76, 60, 0.45),
-        inset 0 1px 0 rgba(255, 255, 255, 0.45);
+      filter: drop-shadow(0 12px 22px rgba(0, 230, 118, 0.55)) drop-shadow(0 0 16px rgba(0, 255, 127, 0.5)) brightness(1.07);
     }
 
     .btn:active {
       transform: translateY(-1px) scale(0.97);
-      box-shadow:
-        0 6px 14px -6px rgba(193, 53, 43, 0.5),
-        0 0 12px -2px rgba(231, 76, 60, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      filter: brightness(0.98);
     }
 
     .btn:disabled {
-      background: var(--text-muted);
       cursor: not-allowed;
       transform: none;
-      filter: none;
-      box-shadow: none;
+      filter: grayscale(0.55);
+      opacity: 0.75;
     }
 
+    .btn,
+    .whatsapp-btn,
+    .whatsapp-float,
+    .header-author,
+    .badge-stock,
+    .feature,
+    .price-tag,
+    .qr-etiqueta {
+      clip-path: polygon(7% 0%, 93% 0%, 100% 12%, 100% 88%, 93% 100%, 7% 100%, 0% 88%, 0% 12%);
+    }
+
+    /* Halo esmeralda interior pulsante (opacity solo) */
+    .btn::before,
+    .whatsapp-btn::before,
+    .whatsapp-float::before,
+    .header-author::before,
+    .badge-stock::before,
+    .feature::before,
+    .price-tag::before,
+    .qr-etiqueta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      clip-path: polygon(7% 0%, 93% 0%, 100% 12%, 100% 88%, 93% 100%, 7% 100%, 0% 88%, 0% 12%);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.4),
+        inset 0 0 20px -2px rgba(0, 255, 127, 0.85);
+      animation: haloPulso 2.6s ease-in-out infinite;
+      pointer-events: none;
+      opacity: 0.55;
+      will-change: opacity;
+    }
+
+    .btn:disabled::before,
     .btn:disabled::after { display: none; }
 
-    @keyframes brilloBotones {
-      0% { transform: translate3d(-260%, 0, 0) skewX(-18deg); opacity: 0; }
-      20% { opacity: 0.9; }
-      45% { opacity: 0.9; }
-      70% { transform: translate3d(420%, 0, 0) skewX(-18deg); opacity: 0; }
-      100% { transform: translate3d(420%, 0, 0) skewX(-18deg); opacity: 0; }
+    @keyframes haloPulso {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
     }
 
-    /* Destello de cristal para etiquetas y tarjetas destacadas */
+    /* Destello líquido recorriendo las facetas (translate3d + opacity) */
+    .btn::after,
+    .whatsapp-btn::after,
+    .whatsapp-float::after,
     .header-author::after,
     .badge-stock::after,
     .feature::after,
-    .qr-etiqueta::after,
     .price-tag::after,
+    .qr-etiqueta::after {
+      content: "";
+      position: absolute;
+      top: -20%;
+      bottom: -20%;
+      left: -8%;
+      width: 24%;
+      z-index: -1;
+      clip-path: polygon(7% 0%, 93% 0%, 100% 12%, 100% 88%, 93% 100%, 7% 100%, 0% 88%, 0% 12%);
+      background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.75) 48%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.75) 52%, transparent 100%);
+      transform: translate3d(-180%, 0, 0);
+      animation: destelloGema 2.6s ease-in-out infinite;
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    @keyframes destelloGema {
+      0% { transform: translate3d(-180%, 0, 0); opacity: 0; }
+      20% { opacity: 1; }
+      50% { opacity: 1; }
+      80% { transform: translate3d(420%, 0, 0); opacity: 0; }
+      100% { transform: translate3d(420%, 0, 0); opacity: 0; }
+    }
+
+    /* Destello suave para tarjetas destacadas */
     .benefit::after,
     .review::after {
       content: "";
@@ -388,14 +416,9 @@
       width: 42%;
       background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.4) 45%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.4) 55%, transparent 100%);
       transform: translate3d(-240%, 0, 0) skewX(-20deg);
-      animation: destelloLuz 3.8s ease-in-out infinite;
+      animation: destelloLuz 4.6s ease-in-out infinite;
       pointer-events: none;
       will-change: transform;
-    }
-
-    .benefit::after,
-    .review::after {
-      animation-duration: 4.6s;
     }
 
     @keyframes destelloLuz {
@@ -522,7 +545,6 @@
     /* --- WhatsApp --- */
     .whatsapp-btn {
       position: relative;
-      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -530,55 +552,29 @@
       min-height: 50px;
       max-width: 480px;
       margin: 16px auto 0;
-      background: linear-gradient(135deg, #00e676 0%, #05c46b 45%, #3af29b 72%, #05c46b 100%);
+      background: var(--ema-facet);
       color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      padding: 13px 24px;
+      padding: 13px 26px;
       font-size: 0.98rem;
       font-weight: 700;
       font-family: inherit;
-      border-radius: 999px;
       cursor: pointer;
       letter-spacing: 0.02em;
       text-align: center;
       text-decoration: none;
-      box-shadow:
-        0 10px 22px -8px rgba(0, 230, 118, 0.6),
-        0 0 18px -2px rgba(0, 230, 118, 0.55),
-        inset 0 1px 0 rgba(255, 255, 255, 0.55);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-      will-change: transform;
-    }
-
-    .whatsapp-btn::after {
-      content: "";
-      position: absolute;
-      top: -25%;
-      bottom: -25%;
-      left: -12%;
-      width: 30%;
-      background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.5) 45%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0.5) 55%, transparent 100%);
-      transform: translate3d(-260%, 0, 0) skewX(-18deg);
-      animation: brilloBotones 3s ease-in-out infinite;
-      pointer-events: none;
+      filter: drop-shadow(0 8px 18px rgba(0, 230, 118, 0.45)) drop-shadow(0 0 12px rgba(0, 255, 127, 0.4));
+      transition: transform 0.3s ease, filter 0.3s ease;
       will-change: transform;
     }
 
     .whatsapp-btn:hover {
       transform: translateY(-3px);
-      filter: brightness(1.05);
-      box-shadow:
-        0 14px 26px -10px rgba(0, 230, 118, 0.68),
-        0 0 26px -2px rgba(0, 230, 118, 0.65),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      filter: drop-shadow(0 12px 22px rgba(0, 230, 118, 0.6)) drop-shadow(0 0 18px rgba(0, 255, 127, 0.55)) brightness(1.08);
     }
 
     .whatsapp-btn:active {
       transform: translateY(-1px) scale(0.98);
-      box-shadow:
-        0 6px 14px -6px rgba(0, 230, 118, 0.5),
-        0 0 14px -2px rgba(0, 230, 118, 0.45),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      filter: brightness(0.98);
     }
 
     .whatsapp-float {
@@ -586,48 +582,23 @@
       bottom: 20px;
       right: 20px;
       z-index: 1000;
-      background: radial-gradient(circle at 32% 28%, #6ef7b0 0%, #00e676 45%, #059a55 100%);
+      background: var(--ema-facet);
       color: #fff;
       width: 58px;
       height: 58px;
-      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.9rem;
       text-decoration: none;
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      box-shadow:
-        0 10px 24px -8px rgba(0, 230, 118, 0.7),
-        0 0 20px -2px rgba(0, 230, 118, 0.6),
-        inset 0 1px 1px rgba(255, 255, 255, 0.6);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      filter: drop-shadow(0 8px 18px rgba(0, 230, 118, 0.5)) drop-shadow(0 0 14px rgba(0, 255, 127, 0.45));
+      transition: transform 0.3s ease, filter 0.3s ease;
       will-change: transform;
-    }
-
-    .whatsapp-float::after {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      border-radius: 50%;
-      border: 2px solid rgba(0, 230, 118, 0.65);
-      animation: pulsoEsmeralda 2.6s ease-out infinite;
-      pointer-events: none;
-      will-change: transform;
-    }
-
-    @keyframes pulsoEsmeralda {
-      0% { transform: translate3d(0, 0, 0) scale3d(1, 1, 1); opacity: 0.75; }
-      70% { transform: translate3d(0, 0, 0) scale3d(1.65, 1.65, 1); opacity: 0; }
-      100% { transform: translate3d(0, 0, 0) scale3d(1.65, 1.65, 1); opacity: 0; }
     }
 
     .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow:
-        0 14px 30px -8px rgba(0, 230, 118, 0.85),
-        0 0 26px -2px rgba(0, 230, 118, 0.75),
-        inset 0 1px 1px rgba(255, 255, 255, 0.65);
+      transform: scale(1.08);
+      filter: drop-shadow(0 12px 24px rgba(0, 230, 118, 0.65)) drop-shadow(0 0 22px rgba(0, 255, 127, 0.6)) brightness(1.08);
     }
 
     .whatsapp-btn i { color: #fff; font-size: 1.25em; }
@@ -792,17 +763,16 @@
 
     .qr-etiqueta {
       position: relative;
-      overflow: hidden;
       display: inline-block;
       font-size: 0.8rem;
-      color: var(--accent);
+      color: #ffffff;
       font-weight: 700;
-      padding: 6px 14px;
-      border: 1px solid rgba(193, 53, 43, 0.28);
-      border-radius: 999px;
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 241, 232, 0.6));
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 6px 16px -8px rgba(193, 53, 43, 0.25);
+      padding: 8px 16px;
+      background: var(--ema-facet);
+      clip-path: polygon(7% 0%, 93% 0%, 100% 12%, 100% 88%, 93% 100%, 7% 100%, 0% 88%, 0% 12%);
+      filter: drop-shadow(0 4px 10px rgba(0, 230, 118, 0.35));
       margin: 12px 0 20px;
+      will-change: transform, opacity;
     }
 
     .qr-botones {
