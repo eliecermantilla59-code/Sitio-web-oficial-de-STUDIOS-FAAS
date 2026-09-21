@@ -33,7 +33,7 @@
 <body>
   <header class="site-header">
     <div class="logo-frame">
-      <img src="logo.jpeg" alt="Logo de STUDIOS FAAS" width="112" height="112" decoding="async" fetchpriority="high" onerror="this.style.display='none'">
+      <img src="logo.jpeg" alt="Logo de STUDIOS FAAS" width="112" height="112" loading="eager" decoding="async" fetchpriority="high" onerror="this.style.display='none'">
     </div>
     <h1>Macetas Milenarias</h1>
     <p class="header-sub">Cerámica China Tradicional</p>
@@ -53,14 +53,14 @@
 
       <div class="gallery">
         <img src="imagen1.jpg" alt="Maceta cerámica china vista 1" loading="eager" decoding="async" fetchpriority="high" width="320" height="320">
-        <img src="imagen2.jpg" alt="Maceta cerámica china vista 2" loading="eager" decoding="async" width="320" height="320">
-        <img src="imagen3.jpg" alt="Maceta cerámica china vista 3" loading="eager" decoding="async" width="320" height="320">
-        <img src="imagen4.jpg" alt="Maceta cerámica china vista 4" loading="eager" decoding="async" width="320" height="320">
-        <img src="imagen5.jpg" alt="Maceta cerámica china vista 5" loading="eager" decoding="async" width="320" height="320">
-        <img src="imagen6.jpg" alt="Maceta cerámica china vista 6" loading="eager" decoding="async" width="320" height="320">
-        <img src="imagen7.jpg" alt="Maceta cerámica china vista 7" loading="eager" decoding="async" width="320" height="320">
-        <img src="imagen8.jpg" alt="Maceta cerámica china vista 8" loading="eager" decoding="async" width="320" height="320">
-        <img src="imagen9.jpg" alt="Maceta cerámica china vista 9" loading="eager" decoding="async" width="320" height="320">
+        <img src="imagen2.jpg" alt="Maceta cerámica china vista 2" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen3.jpg" alt="Maceta cerámica china vista 3" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen4.jpg" alt="Maceta cerámica china vista 4" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen5.jpg" alt="Maceta cerámica china vista 5" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen6.jpg" alt="Maceta cerámica china vista 6" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen7.jpg" alt="Maceta cerámica china vista 7" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen8.jpg" alt="Maceta cerámica china vista 8" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen9.jpg" alt="Maceta cerámica china vista 9" loading="lazy" decoding="async" width="320" height="320">
       </div>
 
       <div class="price-row">
@@ -88,7 +88,7 @@
       </div>
 
       <div id="form-container">
-        <form id="buyForm" class="buy-form" action="https://formsubmit.co/ajax/0e58a3ed0db71cfb69e099c95f22c987" method="POST" novalidate>
+        <form id="buyForm" class="buy-form" action="https://formsubmit.co/ajax/eliecermantilla59@gmail.com" method="POST" novalidate>
           <input type="hidden" name="_subject" value="¡Nuevo mensaje sobre Macetas Milenarias!">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
@@ -182,7 +182,7 @@
         </div>
         <div class="review">
           <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <img src="imagen-comentario.jpg" alt="Foto de la maceta enviada por un comprador" class="r-img" loading="eager" decoding="async" width="640" height="480">
+          <img src="imagen-comentario.jpg" alt="Foto de la maceta enviada por un comprador" class="r-img" loading="lazy" decoding="async" width="640" height="480">
         </div>
       </div>
     </section>
@@ -217,7 +217,7 @@
       <p class="qr-subtitulo">Escanea este código para ver el catálogo desde tu celular</p>
 
       <div class="qr-marco">
-        <img src="https://quickchart.io/qr?text=https://eliecermantilla59-code.github.io/Sitio-web-oficial-de-STUDIOS-FAAS/&size=200" alt="Código QR Macetas Milenarias" class="qr-imagen" loading="eager" decoding="async" width="180" height="180">
+        <img src="https://quickchart.io/qr?text=https://eliecermantilla59-code.github.io/Sitio-web-oficial-de-STUDIOS-FAAS/&size=200" alt="Código QR Macetas Milenarias" class="qr-imagen" loading="lazy" decoding="async" width="180" height="180">
       </div>
       <p class="qr-etiqueta">STUDIOS FAAS - Macetas Milenarias</p>
 
@@ -251,7 +251,7 @@
           const formData = new FormData(form);
           const data = Object.fromEntries(formData.entries());
 
-          fetch("https://formsubmit.co/ajax/0e58a3ed0db71cfb69e099c95f22c987", {
+          fetch("https://formsubmit.co/ajax/eliecermantilla59@gmail.com", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
