@@ -8,6 +8,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="icon" type="image/jpeg" href="./logo.jpeg?v=5">
   <link rel="shortcut icon" type="image/jpeg" href="./logo.jpeg?v=5">
+  <link rel="preload" as="image" href="logo.jpeg">
   <title>Macetas Milenarias — Cerámica China Tradicional</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -133,6 +134,8 @@
       box-shadow: var(--shadow-sm);
       border: 1px solid #f0ece7;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      content-visibility: auto;
+      contain-intrinsic-size: auto 900px;
     }
 
     .card:hover {
@@ -673,11 +676,11 @@
       <p class="sub-title">Pieza única, hecha a mano con técnicas tradicionales</p>
 
       <div class="gallery">
-        <img src="imagen1.png" alt="Maceta cerámica china vista 1" loading="lazy" decoding="async" width="320" height="320">
-        <img src="imagen2.png" alt="Maceta cerámica china vista 2" loading="lazy" decoding="async" width="320" height="320">
-        <img src="imagen3.png" alt="Maceta cerámica china vista 3" loading="lazy" decoding="async" width="320" height="320">
-        <img src="imagen4.png" alt="Maceta cerámica china vista 4" loading="lazy" decoding="async" width="320" height="320">
-        <img src="imagen5.png" alt="Maceta cerámica china vista 5" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen1.jpg" alt="Maceta cerámica china vista 1" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen2.jpg" alt="Maceta cerámica china vista 2" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen3.jpg" alt="Maceta cerámica china vista 3" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen4.jpg" alt="Maceta cerámica china vista 4" loading="lazy" decoding="async" width="320" height="320">
+        <img src="imagen5.jpg" alt="Maceta cerámica china vista 5" loading="lazy" decoding="async" width="320" height="320">
         <img src="imagen6.jpg" alt="Maceta cerámica china vista 6" loading="lazy" decoding="async" width="320" height="320">
         <img src="imagen7.jpg" alt="Maceta cerámica china vista 7" loading="lazy" decoding="async" width="320" height="320">
         <img src="imagen8.jpg" alt="Maceta cerámica china vista 8" loading="lazy" decoding="async" width="320" height="320">
