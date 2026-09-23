@@ -32,105 +32,171 @@
     :root {
       --primary-color: #007c5f;
       --primary-hover: #005a45;
-      --card-bg: #ffffff;
+      --gold-accent: #d4af37;
+      --card-bg: rgba(255, 255, 255, 0.92);
       --text-color: #2b2d42;
-      --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.15);
     }
 
     body {
       font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background-color: #f4f6f8;
+      background: #f4f1ea url('https://img.freepik.com/free-vector/hand-drawn-oriental-pattern-background_23-2149021272.jpg') center/cover fixed;
       color: var(--text-color);
       margin: 0;
       padding: 20px 10px;
       line-height: 1.6;
     }
 
-    /* Contenedor principal alineado */
     .container {
-      max-width: 750px;
+      max-width: 800px;
       margin: 0 auto;
     }
 
     header {
       text-align: center;
       margin-bottom: 25px;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(5px);
     }
 
-    /* Evita que cualquier imagen de fondo o del cuerpo se desborde */
-    img {
-      max-width: 100% !important;
-      height: auto !important;
-      display: block;
-    }
-
-    .logo-header {
-      width: 90px;
-      height: 90px;
+    header img.logo-header {
+      width: 100px;
+      height: 100px;
+      border-radius: 18px;
+      object-fit: cover;
       margin: 0 auto 10px auto;
-      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
-    /* Tarjetas estructuradas */
     .card, section {
       background: var(--card-bg);
-      border-radius: 16px;
+      border-radius: 20px;
       box-shadow: var(--shadow-soft);
-      padding: 24px;
-      margin-bottom: 20px;
+      padding: 25px;
+      margin-bottom: 25px;
       box-sizing: border-box;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(212, 175, 55, 0.3);
     }
 
-    /* Corrección completa para botones y contenedores flexibles */
-    button, .btn, a.btn {
+    /* Galería de imágenes organizadas */
+    .product-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .product-gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Formulario estructurado verticalmente */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1.5px solid #ccc;
+      border-radius: 10px;
+      font-family: inherit;
+      box-sizing: border-box;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Botones estilizados con efecto de brillo y transparencia */
+    button, .btn, a.btn-whatsapp {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100% !important;
-      max-width: 100% !important;
-      padding: 12px 18px;
-      margin: 8px 0;
-      border-radius: 10px;
+      width: 100%;
+      padding: 14px 20px;
+      margin: 10px 0;
+      border-radius: 12px;
       border: none;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
+      color: #ffffff;
       cursor: pointer;
-      box-sizing: border-box !important;
+      box-sizing: border-box;
       text-decoration: none;
       overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+      transition: all 0.3s ease;
     }
 
-    .btn-green {
-      background-color: #00a881;
-      color: #ffffff;
+    /* Botón rojo/verde con degradado translúcido y brillo */
+    .btn-submit {
+      background: linear-gradient(135deg, rgba(217, 4, 41, 0.9), rgba(157, 2, 8, 0.95));
+      box-shadow: 0 4px 15px rgba(217, 4, 41, 0.4);
     }
 
     .btn-whatsapp {
-      background-color: #25D366;
-      color: #ffffff;
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.9), rgba(18, 140, 126, 0.95));
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
     }
 
-    /* Contenedor del código QR controlado */
-    .qr-container img {
-      max-width: 180px !important;
+    /* Efecto de brillo que cruza el botón */
+    button::after, .btn::after, a.btn-whatsapp::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.35);
+      transform: rotate(30deg);
+      transition: all 0.6s ease;
+    }
+
+    button:hover::after, .btn:hover::after, a.btn-whatsapp:hover::after {
+      left: 120%;
+    }
+
+    button:hover, .btn:hover, a.btn-whatsapp:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+
+    /* Código QR y elementos inferiores centrados */
+    .qr-section {
+      text-align: center;
+    }
+
+    .qr-section img {
+      max-width: 160px;
       margin: 0 auto 15px auto;
     }
 
     /* Botón flotante de WhatsApp */
     .whatsapp-float {
       position: fixed;
-      width: 55px;
-      height: 55px;
+      width: 60px;
+      height: 60px;
       bottom: 25px;
       right: 25px;
-      background-color: #25d366;
+      background: linear-gradient(135deg, #25d366, #128c7e);
       color: #fff;
-      border-radius: 50px;
+      border-radius: 50%;
       text-align: center;
-      font-size: 30px;
-      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      font-size: 32px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       z-index: 100;
       display: flex;
       align-items: center;
