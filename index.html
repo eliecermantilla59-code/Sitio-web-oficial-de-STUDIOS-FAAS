@@ -49,19 +49,55 @@
       line-height: 1.6;
     }
 
-    .container, section, .card {
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section, .card {
       background: var(--card-bg);
       border-radius: 16px;
       box-shadow: var(--shadow-soft);
       padding: 24px;
       margin: 20px auto;
-      max-width: 600px;
+      width: 100%;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .site-header {
+      text-align: center;
+    }
+
+    section.card.product-main {
+      width: 100%;
+      max-width: 800px;
+      margin: 20px auto;
     }
 
     .card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-hover);
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .gallery img {
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      border-radius: 12px;
     }
 
     button, .btn, input[type="submit"] {
