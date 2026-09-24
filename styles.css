@@ -187,19 +187,32 @@ h3 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.product-card img,
+/* Ajuste de encuadre perfecto sin recortar productos */
+.product-gallery img,
 .gallery-img,
+.product-card img,
 .maceta-img,
 .gallery img {
     width: 100% !important;
-    max-width: 280px !important;
-    height: 260px !important;
-    object-fit: cover !important;
+    height: 240px !important;
+    object-fit: contain !important;
     object-position: center !important;
+    background-color: #f8fafc !important;
     border-radius: 12px !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
     display: block !important;
     margin: 0 auto 12px auto !important;
     cursor: pointer;
+}
+
+/* Fotos de estilo de vida / ambiente: encuadre atractivo */
+.lifestyle-gallery img {
+    width: 100% !important;
+    height: 240px !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    display: block;
 }
 
 .product-card img:hover,
