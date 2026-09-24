@@ -435,20 +435,32 @@ a[href*="wa.me"]:hover {
 }
 
 /* ---------- Valoraciones / Reseñas ---------- */
-.reviews {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 18px;
+.reviews,
+.reviews-photos-grid,
+.buyers-gallery {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    gap: 15px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .review {
     background: #ffffff;
     border: 1px solid #ececeb;
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 22px;
     box-shadow: 0 6px 18px rgba(28, 25, 23, 0.05);
     display: flex;
     flex-direction: column;
+}
+
+.review-photo-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .r-stars {
@@ -473,15 +485,15 @@ a[href*="wa.me"]:hover {
 }
 
 /* Fotos de compradores: proporción uniforme */
-.r-img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 16px;
-    background: #f5f5f4;
-    border: 1px solid #ececeb;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    margin-top: 4px;
+.r-img,
+.reviews img,
+.reviews-photos-grid img,
+.buyers-gallery img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    display: block;
 }
 
 /* ---------- FAQ ---------- */
