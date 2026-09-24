@@ -162,28 +162,52 @@ h3 {
 }
 
 /* ---------- Galería del producto ---------- */
+.product-grid,
+.galeria-macetas,
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 18px;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    gap: 20px !important;
+    width: 100% !important;
+    padding: 10px 0 !important;
+    box-sizing: border-box !important;
     margin: 30px 0;
 }
 
-.gallery img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+.product-card,
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
     border-radius: 16px;
-    border: 1px solid #ececeb;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.product-card img,
+.gallery-img,
+.maceta-img,
+.gallery img {
+    width: 100% !important;
+    max-width: 280px !important;
+    height: 260px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 12px !important;
+    display: block !important;
+    margin: 0 auto 12px auto !important;
+    cursor: pointer;
+}
+
+.product-card img:hover,
+.gallery-img:hover,
 .gallery img:hover {
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 0 0 2px #d6b98c, 0 16px 34px rgba(0, 0, 0, 0.16);
-    border-color: #d6b98c;
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* ---------- Precio y características ---------- */
@@ -730,11 +754,6 @@ a[href*="wa.me"].float {
         padding: 34px 18px 26px;
     }
 
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
     .price-tag {
         font-size: 1.6rem;
     }
@@ -746,15 +765,6 @@ a[href*="wa.me"].float {
 }
 
 @media (max-width: 420px) {
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-
-    .gallery img {
-        border-radius: 12px;
-    }
-
     .price-row {
         gap: 10px;
     }
