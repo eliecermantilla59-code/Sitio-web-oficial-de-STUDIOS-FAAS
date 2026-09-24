@@ -166,7 +166,7 @@ h3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 18px;
-    margin: 0 0 24px;
+    margin: 30px 0;
 }
 
 .gallery img {
@@ -176,12 +176,14 @@ h3 {
     border-radius: 16px;
     border: 1px solid #ececeb;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .gallery img:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.13);
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 0 0 2px #d6b98c, 0 16px 34px rgba(0, 0, 0, 0.16);
+    border-color: #d6b98c;
 }
 
 /* ---------- Precio y características ---------- */
@@ -494,6 +496,16 @@ a[href*="wa.me"]:hover {
     object-fit: cover !important;
     border-radius: 12px !important;
     display: block;
+    cursor: pointer;
+}
+
+.main-footer img,
+.trust img,
+.qr-marco img,
+.qr-imagen,
+section img,
+main img {
+    cursor: pointer;
 }
 
 /* ---------- FAQ ---------- */
