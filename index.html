@@ -274,6 +274,59 @@
     .whatsapp-float:hover, .btn-float-wa:hover {
       transform: scale(1.1);
     }
+
+    /* ===== AJUSTE DEFINITIVO: botón flotante circular estricto ===== */
+    .whatsapp-float, .btn-float-wa, a[href*="wa.me"] {
+      position: fixed !important;
+      width: 60px !important;
+      height: 60px !important;
+      min-width: 60px !important;
+      min-height: 60px !important;
+      max-width: 60px !important;
+      max-height: 60px !important;
+      bottom: 20px !important;
+      right: 20px !important;
+      background-color: #25d366 !important;
+      border-radius: 50% !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+      z-index: 99999 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      overflow: hidden !important;
+      color: #fff !important;
+      text-decoration: none !important;
+    }
+
+    .whatsapp-float img, .whatsapp-float svg, .btn-float-wa img, .btn-float-wa svg, a[href*="wa.me"] img {
+      width: 32px !important;
+      height: 32px !important;
+      min-width: 32px !important;
+      min-height: 32px !important;
+      max-width: 32px !important;
+      max-height: 32px !important;
+      object-fit: contain !important;
+      display: block;
+    }
+
+    /* ===== TESTIMONIOS EN TARJETAS ===== */
+    .testimonials-container, .reviews-grid, .reviews {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .review-card, .testimonial-item, .review {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid #eaeaea;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+      margin: 0;
+    }
   </style>
 </head>
 <body>
