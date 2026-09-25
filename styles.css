@@ -1,6 +1,7 @@
 /* =========================================================
-   MACETAS MILENARIAS — Rediseño Premium
-   Paleta artesanal, tarjetas elegantes y detalles pulidos.
+   MACETAS MILENARIAS — Ultra Premium
+   Glassmorphism, fuentes Cinzel y acabados dorados
+   STUDIOS FAAS
    ========================================================= */
 
 /* ---------- Base y tipografía ---------- */
@@ -8,6 +9,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -16,12 +18,19 @@ html {
 
 body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    background: linear-gradient(135deg, #fbfbfb 0%, #f4f4f6 100%);
-    color: #1c1917;
+    background: linear-gradient(160deg, #0f172a 0%, #1e293b 55%, #111827 100%) fixed;
+    color: #e2dfd8;
     margin: 0;
-    padding: 28px 16px 56px;
-    line-height: 1.65;
+    padding: 30px 16px 60px;
+    line-height: 1.7;
     overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Brillo ambiental dorado sutil */
+body::before {
+    content: none !important;
 }
 
 /* Protección: sin overlays ni máscaras que cubran el contenido */
@@ -29,7 +38,7 @@ body, .container {
     overflow: visible !important;
 }
 
-body::before, body::after,
+body::after,
 .container::before, .container::after,
 main::before, main::after {
     content: none !important;
@@ -44,12 +53,12 @@ svg,
 }
 
 ::selection {
-    background: #e11d48;
-    color: #ffffff;
+    background: #d4af37;
+    color: #0f172a;
 }
 
 .container {
-    max-width: 880px;
+    max-width: 920px;
     margin: 0 auto;
     padding-bottom: 24px;
 }
@@ -57,88 +66,127 @@ svg,
 /* ---------- Encabezado / Hero ---------- */
 .site-header {
     text-align: center;
-    padding: 44px 24px 34px;
-    background: linear-gradient(135deg, #ffffff 0%, #f6f3ee 100%);
-    border: 1px solid rgba(28, 25, 23, 0.05);
-    border-radius: 24px;
-    box-shadow: 0 12px 34px rgba(28, 25, 23, 0.06);
-    margin: 0 0 28px;
+    padding: 46px 24px 38px;
+    background: rgba(255, 255, 255, 0.85);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 28px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    margin: 0 0 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 50% -20%, rgba(212, 175, 55, 0.18) 0%, transparent 60%);
 }
 
 .logo-frame {
     display: inline-flex;
-    padding: 6px;
+    padding: 8px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #d6b98c 0%, #b8905c 100%);
-    box-shadow: 0 6px 18px rgba(120, 80, 40, 0.18);
+    background: linear-gradient(135deg, #f5e0a3 0%, #d4af37 40%, #8a6d1b 100%);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
 }
 
 .logo-frame img {
     display: block;
-    width: 104px;
-    height: 104px;
+    width: 108px;
+    height: 108px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #ffffff;
+    border: 4px solid #ffffff;
 }
 
 .site-header h1 {
-    font-size: clamp(2.2rem, 6vw, 3.3rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: #1c1917;
-    margin: 20px 0 10px;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 22px 0 12px;
+    background: linear-gradient(115deg, #8a6d1b 0%, #d4af37 35%, #f5e0a3 50%, #d4af37 65%, #8a6d1b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: none;
 }
 
 .header-sub {
     text-transform: uppercase;
-    letter-spacing: 0.42em;
-    font-size: 0.76rem;
-    font-weight: 700;
-    color: #a16207;
-    margin: 0 0 16px;
-    padding-left: 0.42em;
+    letter-spacing: 0.4em;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: #9a7b26;
+    margin: 0 0 18px;
+    padding-left: 0.4em;
 }
 
 .header-author {
     display: inline-block;
-    padding: 7px 16px;
-    border: 1px solid #e7e5e4;
+    padding: 8px 18px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.75);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    color: #78716c;
+    background: rgba(255, 255, 255, 0.7);
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: #6b5b2e;
+}
+
+/* Badge Colección Exclusiva */
+.badge-coleccion {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 7px 20px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f5e0a3 0%, #d4af37 50%, #b8902a 100%);
+    color: #2a2106;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 14px rgba(212, 175, 55, 0.45);
 }
 
 .tagline {
     text-align: center;
-    max-width: 660px;
+    max-width: 680px;
     margin: 0 auto 30px;
     font-size: 1.02rem;
-    line-height: 1.75;
-    color: #57534e;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.88);
 }
 
-/* ---------- Tarjetas ---------- */
+/* ---------- Tarjetas (Glassmorphism) ---------- */
 .card,
 section,
 header {
-    background: #ffffff;
-    border: 1px solid rgba(28, 25, 23, 0.06);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(28, 25, 23, 0.07);
+    background: rgba(255, 255, 255, 0.85);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
     padding: 30px 26px;
     margin-bottom: 26px;
     box-sizing: border-box;
 }
 
 section h2 {
+    font-family: 'Cinzel', Georgia, serif;
     font-size: 1.35rem;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    color: #1c1917;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #8a6d1b;
     margin: 0 0 6px;
     display: flex;
     align-items: center;
@@ -146,18 +194,18 @@ section h2 {
 }
 
 section h2 .icon {
-    color: #a16207;
+    color: #d4af37;
 }
 
 .sub-title {
-    color: #78716c;
+    color: #7a705c;
     font-size: 0.95rem;
     margin: 0 0 22px;
 }
 
 h3 {
-    color: #1c1917;
-    font-weight: 800;
+    color: #2a2418;
+    font-weight: 700;
     margin: 0 0 10px;
 }
 
@@ -167,32 +215,57 @@ h3 {
 .gallery {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
-    gap: 20px !important;
+    gap: 22px !important;
     width: 100% !important;
     padding: 10px 0 !important;
     box-sizing: border-box !important;
     margin: 30px 0;
 }
 
-.product-card,
-.grid-item {
+/* Tarjeta boutique de cada maceta */
+.maceta-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background: #ffffff;
-    border-radius: 16px;
-    padding: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    border-radius: 20px;
+    padding: 16px 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Ajuste de encuadre perfecto sin recortar productos */
+.maceta-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(212, 175, 55, 0.45);
+}
+
+/* Etiqueta dorada discreta */
+.gallery-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 5;
+    padding: 4px 11px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f5e0a3 0%, #d4af37 50%, #b8902a 100%);
+    color: #2a2106;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.5);
+}
+
+/* Imágenes uniformes y completas */
 .product-gallery img,
 .gallery-img,
 .product-card img,
 .maceta-img,
-.gallery img {
+.maceta-item img {
     width: 100% !important;
     height: 240px !important;
     object-fit: contain !important;
@@ -202,25 +275,41 @@ h3 {
     padding: 8px !important;
     box-sizing: border-box !important;
     display: block !important;
-    margin: 0 auto 12px auto !important;
     cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Fotos de estilo de vida / ambiente: encuadre atractivo */
+.maceta-item img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+}
+
+/* Destello suave al pasar el cursor (efecto lujo) */
+.maceta-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.35) 50%, transparent 80%);
+    transform: skewX(-12deg);
+    pointer-events: none;
+    transition: left 0.8s ease;
+}
+
+.maceta-item:hover::after {
+    left: 130%;
+}
+
+/* Fotos de estilo de vida / ambiente */
 .lifestyle-gallery img {
     width: 100% !important;
     height: 240px !important;
     object-fit: cover !important;
     border-radius: 12px !important;
     display: block;
-}
-
-.product-card img:hover,
-.gallery-img:hover,
-.gallery img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 /* ---------- Precio y características ---------- */
@@ -240,10 +329,14 @@ h3 {
 }
 
 .price-tag {
-    font-size: 1.9rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: #be123c;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #9a7b26;
+    background: linear-gradient(115deg, #8a6d1b, #d4af37);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .badge-stock {
@@ -254,12 +347,17 @@ h3 {
     border: 1px solid #bbf7d0;
     color: #15803d;
     font-size: 0.78rem;
-    font-weight: 700;
+    font-weight: 600;
+}
+
+.desc,
+p,
+li {
+    color: #4c4538;
 }
 
 .desc {
-    line-height: 1.75;
-    color: #44403c;
+    line-height: 1.8;
     margin: 0 0 18px;
 }
 
@@ -273,18 +371,18 @@ h3 {
 .feature {
     padding: 7px 14px;
     border-radius: 999px;
-    background: #fef2f2;
-    border: 1px solid #fecaca;
-    color: #b91c1c;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    color: #8a6d1b;
     font-size: 0.8rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 /* ---------- Formulario ---------- */
 form {
-    background: #fcfcfa;
-    border: 1px solid #e7e5e4;
-    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 18px;
     padding: 24px;
     margin: 6px 0 18px;
     display: flex;
@@ -298,21 +396,21 @@ form h3 {
 
 .form-sub {
     font-size: 0.9rem;
-    color: #78716c;
+    color: #7a705c;
     margin: 0;
 }
 
 label {
     font-size: 0.85rem;
     font-weight: 700;
-    color: #292524;
+    color: #2a2418;
 }
 
 input,
 textarea {
     width: 100% !important;
     padding: 13px 16px;
-    border: 1.5px solid #e7e5e4;
+    border: 1.5px solid rgba(138, 109, 27, 0.25);
     border-radius: 12px;
     background: #ffffff;
     font-family: inherit;
@@ -325,8 +423,8 @@ textarea {
 input:focus,
 textarea:focus {
     outline: none;
-    border-color: #e11d48;
-    box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.12);
+    border-color: #d4af37;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.18);
 }
 
 textarea {
@@ -347,23 +445,23 @@ button,
     justify-content: center;
     width: 100%;
     padding: 16px 32px;
-    background: linear-gradient(135deg, #8B0000 0%, #B22222 50%, #660000 100%) !important;
+    background: linear-gradient(135deg, #7c2d8a 0%, #a855d0 50%, #6a1f78 100%) !important;
     color: #F8F5F0 !important;
-    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
-    font-size: 1.05rem;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 1.02rem;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    border: 1px solid #D4AF37 !important;
+    border: 1px solid #d4af37 !important;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(139, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 22px rgba(124, 45, 138, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 0 12px rgba(212, 175, 55, 0.25);
     cursor: pointer;
     text-decoration: none !important;
     box-sizing: border-box;
     gap: 8px;
-    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
     overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .btn-gema-red:hover,
@@ -373,15 +471,17 @@ button[type="submit"]:hover,
 a.btn:hover,
 button:hover,
 .button:hover {
-    background: linear-gradient(135deg, #A00000 0%, #C71585 50%, #800000 100%) !important;
-    box-shadow: 0 12px 28px rgba(139, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+    background: linear-gradient(135deg, #8d35a0 0%, #c070e0 50%, #7c2d8a 100%) !important;
+    box-shadow: 0 14px 32px rgba(124, 45, 138, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.6), 0 0 18px rgba(212, 175, 55, 0.4);
     transform: translateY(-3px);
-    border-color: #FFD700 !important;
+    border-color: #f5e0a3 !important;
 }
 
 button:active,
-.btn:active {
-    transform: translateY(0);
+.btn:active,
+a.btn:active {
+    transform: translateY(0) scale(0.97);
+    box-shadow: 0 4px 12px rgba(124, 45, 138, 0.35);
 }
 
 /* --- BOTÓN SECUNDARIO / WHATSAPP JADE ELEGANTE --- */
@@ -400,11 +500,11 @@ button:active,
     font-family: 'Cinzel', Georgia, serif;
     font-size: 0.95rem;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
-    border: 1px solid rgba(52, 211, 153, 0.5) !important;
+    border: 1px solid rgba(212, 175, 55, 0.55) !important;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(4, 120, 87, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(4, 120, 87, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.3);
     text-decoration: none !important;
     cursor: pointer;
     position: relative;
@@ -419,9 +519,9 @@ button:active,
 .btn-gema-green:hover,
 .btn-whatsapp-direct:hover {
     background: linear-gradient(135deg, #047857 0%, #10b981 50%, #064e3b 100%) !important;
-    box-shadow: 0 12px 25px rgba(16, 185, 129, 0.45);
+    box-shadow: 0 12px 26px rgba(16, 185, 129, 0.5), 0 0 14px rgba(212, 175, 55, 0.35);
     transform: translateY(-2px);
-    border-color: #6ee7b7 !important;
+    border-color: #f5e0a3 !important;
 }
 
 /* EFECTO DE DESTELLO AL PASAR EL CURSOR */
@@ -438,7 +538,7 @@ button[type="submit"]::after,
     left: -60%;
     width: 20%;
     height: 200%;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.3);
     transform: rotate(30deg);
     transition: all 0.75s ease;
 }
@@ -457,12 +557,12 @@ button[type="submit"]:hover::after,
 .trust {
     text-align: center;
     font-size: 0.88rem;
-    color: #78716c;
+    color: #7a705c;
     margin: 26px 0 0;
 }
 
 .stars {
-    color: #f59e0b;
+    color: #d4af37;
     letter-spacing: 2px;
     font-size: 1.05rem;
 }
@@ -475,15 +575,15 @@ button[type="submit"]:hover::after,
 
 .specs-table td {
     padding: 12px 8px;
-    border-bottom: 1px solid #f1efee;
+    border-bottom: 1px solid rgba(138, 109, 27, 0.15);
     font-size: 0.92rem;
-    color: #44403c;
+    color: #4c4538;
 }
 
 .specs-table td:first-child {
     width: 42%;
     font-weight: 700;
-    color: #78716c;
+    color: #8a6d1b;
 }
 
 .specs-table tr:last-child td {
@@ -499,8 +599,8 @@ button[type="submit"]:hover::after,
 
 .benefit {
     text-align: center;
-    background: #fcfcfa;
-    border: 1px solid #ececeb;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 16px;
     padding: 22px 16px;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -508,7 +608,7 @@ button[type="submit"]:hover::after,
 
 .benefit:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 26px rgba(28, 25, 23, 0.09);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.1);
 }
 
 .b-icon {
@@ -519,8 +619,8 @@ button[type="submit"]:hover::after,
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: #fef2f2;
-    color: #be123c;
+    background: linear-gradient(135deg, #f5e0a3, #d4af37);
+    color: #2a2106;
     font-size: 24px;
 }
 
@@ -532,7 +632,7 @@ button[type="submit"]:hover::after,
 .benefit p {
     font-size: 0.85rem;
     line-height: 1.6;
-    color: #78716c;
+    color: #7a705c;
     margin: 0;
 }
 
@@ -548,11 +648,11 @@ button[type="submit"]:hover::after,
 }
 
 .review {
-    background: #ffffff;
-    border: 1px solid #ececeb;
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 16px;
     padding: 22px;
-    box-shadow: 0 6px 18px rgba(28, 25, 23, 0.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
     display: flex;
     flex-direction: column;
 }
@@ -561,12 +661,12 @@ button[type="submit"]:hover::after,
     background: #ffffff;
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid #eee;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .r-stars {
-    color: #f59e0b;
+    color: #d4af37;
     letter-spacing: 2px;
     font-size: 0.95rem;
     margin-bottom: 10px;
@@ -574,16 +674,16 @@ button[type="submit"]:hover::after,
 
 .review p {
     font-size: 0.92rem;
-    line-height: 1.65;
-    color: #44403c;
+    line-height: 1.7;
+    color: #4c4538;
     margin: 0 0 12px;
     flex: 1;
 }
 
 .r-name {
     font-size: 0.85rem;
-    font-weight: 800;
-    color: #292524;
+    font-weight: 700;
+    color: #2a2418;
 }
 
 /* Fotos de compradores: proporción uniforme */
@@ -610,8 +710,8 @@ main img {
 
 /* ---------- FAQ ---------- */
 .faq-item {
-    background: #fcfcfa;
-    border-left: 3px solid #fda4af;
+    background: rgba(255, 255, 255, 0.6);
+    border-left: 3px solid #d4af37;
     border-radius: 12px;
     padding: 16px 18px;
     margin-bottom: 12px;
@@ -620,16 +720,17 @@ main img {
 .faq-item h3 {
     font-size: 0.95rem;
     margin: 0 0 6px;
+    color: #8a6d1b;
 }
 
 .faq-item p {
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #78716c;
+    color: #6b5f4a;
     margin: 0;
 }
 
-/* ---------- QR ---------- */
+/* ---------- QR (passepartout de galería) ---------- */
 .qr-contenedor {
     text-align: center;
 }
@@ -639,7 +740,7 @@ main img {
 }
 
 .qr-subtitulo {
-    color: #78716c;
+    color: #7a705c;
     font-size: 0.95rem;
     margin: 0 0 20px;
 }
@@ -647,11 +748,12 @@ main img {
 .qr-marco {
     display: inline-flex;
     background: #ffffff;
-    border: 1px solid #ececeb;
-    border-radius: 20px;
-    padding: 18px;
-    box-shadow: 0 10px 26px rgba(28, 25, 23, 0.07);
-    margin-bottom: 10px;
+    border: 6px double rgba(212, 175, 55, 0.6);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.35), 0 14px 34px rgba(0, 0, 0, 0.12);
+    margin-bottom: 12px;
+    position: relative;
 }
 
 .qr-imagen {
@@ -661,10 +763,12 @@ main img {
 }
 
 .qr-etiqueta {
+    font-family: 'Cinzel', Georgia, serif;
     font-size: 0.8rem;
-    color: #a8a29e;
-    margin: 4px 0 18px;
-    letter-spacing: 0.08em;
+    color: #8a6d1b;
+    margin: 6px 0 18px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 .qr-botones {
@@ -678,10 +782,35 @@ main img {
 /* ---------- Footer ---------- */
 .main-footer {
     text-align: center;
-    color: #78716c;
+    color: rgba(255, 255, 255, 0.75);
     font-size: 0.85rem;
     line-height: 1.8;
     padding: 10px 0 0;
+}
+
+/* Footer de créditos final */
+.footer-creditos {
+    text-align: center;
+    padding: 26px 20px 10px;
+    margin-top: 40px;
+    color: rgba(226, 223, 216, 0.7);
+}
+
+.footer-creditos p {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    margin: 6px 0;
+    color: rgba(226, 223, 216, 0.72);
+}
+
+.sep-creditos {
+    display: block;
+    width: 60px;
+    height: 2px;
+    margin: 0 auto 14px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    border-radius: 2px;
 }
 
 /* ---------- Botón flotante WhatsApp ---------- */
@@ -700,8 +829,8 @@ a[href*="wa.me"].float {
     padding: 0 !important;
     margin: 0 !important;
     border-radius: 50% !important;
-    background: #25d366 !important;
-    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4) !important;
+    background: linear-gradient(135deg, #25d366, #0e9f5a) !important;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.45), 0 0 10px rgba(212, 175, 55, 0.2) !important;
     z-index: 9999 !important;
     display: flex !important;
     align-items: center !important;
@@ -715,7 +844,7 @@ a[href*="wa.me"].float {
 .whatsapp-float:hover,
 .btn-float-wa:hover {
     transform: translateY(-3px) scale(1.04);
-    box-shadow: 0 12px 26px rgba(37, 211, 102, 0.5) !important;
+    box-shadow: 0 14px 30px rgba(37, 211, 102, 0.6) !important;
 }
 
 .whatsapp-float svg,
@@ -734,7 +863,7 @@ a[href*="wa.me"].float {
     border-radius: 14px;
     padding: 18px;
     color: #15803d;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
 }
 
@@ -753,18 +882,18 @@ a[href*="wa.me"].float {
 /* ---------- Responsivo ---------- */
 @media (max-width: 720px) {
     body {
-        padding: 18px 10px 48px;
+        padding: 18px 10px 50px;
     }
 
     .card,
     section,
     header {
         padding: 24px 18px;
-        border-radius: 18px;
+        border-radius: 20px;
     }
 
     .site-header {
-        padding: 34px 18px 26px;
+        padding: 36px 18px 28px;
     }
 
     .price-tag {
