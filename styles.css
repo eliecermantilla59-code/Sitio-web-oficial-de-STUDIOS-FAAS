@@ -2,7 +2,63 @@
    MACETAS MILENARIAS — Ultra Premium
    Glassmorphism, fuentes Cinzel y acabados dorados
    STUDIOS FAAS
+   Tema claro / oscuro automático según el sistema
    ========================================================= */
+
+/* ---------- Variables de tema: MODO CLARO (Día) ---------- */
+:root {
+    --bg-color: #f0f4f9;
+    --card-bg: rgba(255, 255, 255, 0.92);
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --studios-blue: #1e40af;        /* Azul STUDIOS FAAS versión clara */
+    --studios-blue-accent: #2563eb;
+    --gold-border: rgba(212, 175, 55, 0.6);
+    --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+
+    /* Variables complementarias del tema */
+    --bg-image: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.07), transparent 70%);
+    --inner-bg: rgba(255, 255, 255, 0.6);
+    --form-bg: rgba(241, 245, 249, 0.55);
+    --input-bg: rgba(255, 255, 255, 0.9);
+    --input-color: #1e293b;
+    --input-border: rgba(51, 65, 85, 0.35);
+    --placeholder-color: #64748b;
+    --divider: rgba(51, 65, 85, 0.15);
+    --gold-text: #a16207;
+    --success-bg: rgba(16, 185, 129, 0.12);
+    --success-border: rgba(16, 185, 129, 0.5);
+    --success-text: #059669;
+    --shadow-deep: 0 24px 50px rgba(15, 23, 42, 0.12);
+}
+
+/* ---------- Variables de tema: MODO OSCURO (Noche) ---------- */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #0a192f;        /* Azul STUDIOS FAAS noche profundo */
+        --card-bg: rgba(15, 23, 42, 0.9);
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --studios-blue: #00f2fe;    /* Azul Neón STUDIOS FAAS */
+        --studios-blue-accent: #38bdf8;
+        --gold-border: rgba(212, 175, 55, 0.4);
+        --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+
+        --bg-image: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.1), transparent 70%);
+        --inner-bg: rgba(23, 32, 51, 0.55);
+        --form-bg: rgba(13, 19, 31, 0.5);
+        --input-bg: #0d131f;
+        --input-color: #f1f5f9;
+        --input-border: rgba(148, 163, 184, 0.35);
+        --placeholder-color: #64748b;
+        --divider: rgba(148, 163, 184, 0.2);
+        --gold-text: #f0d465;
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-border: rgba(16, 185, 129, 0.5);
+        --success-text: #34d399;
+        --shadow-deep: 0 24px 50px rgba(0, 0, 0, 0.35);
+    }
+}
 
 /* ---------- Base y tipografía ---------- */
 *,
@@ -18,14 +74,16 @@ html {
 
 body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
-    background: linear-gradient(160deg, #0d131f 0%, #172033 55%, #0d131f 100%) !important;
+    background: var(--bg-color) !important;
+    background-image: var(--bg-image) !important;
     background-attachment: fixed !important;
-    color: #e2e8f0 !important;
+    color: var(--text-primary) !important;
     margin: 0 !important;
     padding: 20px 10px !important;
     min-height: 100vh !important;
     overflow-x: hidden !important;
     line-height: 1.7;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Eliminar cualquier elemento de reflejo decorativo que cause franjas recortadas */
@@ -70,15 +128,16 @@ svg,
 .site-header {
     text-align: center;
     padding: 46px 24px 38px;
-    background: rgba(23, 32, 51, 0.85);
+    background: var(--card-bg);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid var(--gold-border);
     border-radius: 28px;
-    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4), 0 0 26px rgba(37, 99, 235, 0.12);
+    box-shadow: var(--shadow-deep);
     margin: 0 0 30px;
     position: relative;
     overflow: hidden;
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .logo-frame {
@@ -104,7 +163,7 @@ svg,
     font-weight: 700;
     letter-spacing: 3px;
     margin: 22px 0 12px;
-    background: linear-gradient(115deg, #ffffff 0%, #93c5fd 40%, #cbe4ff 55%, #93c5fd 70%, #ffffff 100%);
+    background: linear-gradient(115deg, var(--studios-blue) 0%, var(--studios-blue-accent) 50%, var(--studios-blue) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -117,22 +176,24 @@ svg,
     letter-spacing: 0.4em;
     font-size: 0.74rem;
     font-weight: 600;
-    color: #93c5fd;
+    color: var(--studios-blue-accent);
     margin: 0 0 18px;
     padding-left: 0.4em;
 }
 
+/* Crédito Fabio Ardila / STUDIOS FAAS — Dorado en ambos modos */
 .header-author {
     display: inline-block;
     padding: 8px 18px;
-    border: 1px solid rgba(212, 175, 55, 0.5);
+    border: 1px solid var(--gold-border);
     border-radius: 999px;
-    background: rgba(13, 19, 31, 0.6);
+    background: rgba(212, 175, 55, 0.12);
     font-family: 'Cinzel', Georgia, serif;
     font-size: 0.74rem;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: #f5c542;
+    color: #d4af37;
+    transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 /* Badge Colección Exclusiva */
@@ -158,22 +219,24 @@ svg,
     font-size: 1.02rem;
     font-weight: 300;
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.88);
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
 }
 
-/* ---------- Tarjetas (Cristal oscuro + dorado sutil) ---------- */
+/* ---------- Tarjetas (Cristal + borde dorado sutil) ---------- */
 .card,
 section,
 header {
-    background: rgba(23, 32, 51, 0.85);
+    background: var(--card-bg);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid var(--gold-border);
     border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 12px 32px rgba(37, 99, 235, 0.18);
+    box-shadow: var(--card-shadow);
     padding: 30px 26px;
     margin-bottom: 26px;
     box-sizing: border-box;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 section h2 {
@@ -181,11 +244,12 @@ section h2 {
     font-size: 1.35rem;
     font-weight: 700;
     letter-spacing: 0.02em;
-    color: #e0f2fe;
+    color: var(--studios-blue);
     margin: 0 0 6px;
     display: flex;
     align-items: center;
     gap: 10px;
+    transition: color 0.3s ease;
 }
 
 section h2 .icon {
@@ -193,15 +257,17 @@ section h2 .icon {
 }
 
 .sub-title {
-    color: #94a3b8;
+    color: var(--text-secondary);
     font-size: 0.95rem;
     margin: 0 0 22px;
+    transition: color 0.3s ease;
 }
 
 h3 {
-    color: #e2e8f0;
+    color: var(--text-primary);
     font-weight: 700;
     margin: 0 0 10px;
+    transition: color 0.3s ease;
 }
 
 /* ---------- Galería del producto ---------- */
@@ -223,18 +289,18 @@ h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(23, 32, 51, 0.6);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    background: var(--card-bg);
+    border: 1px solid var(--gold-border);
     border-radius: 20px;
     padding: 16px 14px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 8px 22px rgba(37, 99, 235, 0.14);
+    box-shadow: var(--card-shadow);
     position: relative;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .maceta-item:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.45), 0 16px 34px rgba(37, 99, 235, 0.22);
+    box-shadow: var(--shadow-deep), 0 0 0 1px rgba(212, 175, 55, 0.45);
 }
 
 /* Etiqueta base (dorada) */
@@ -255,17 +321,17 @@ h3 {
     box-shadow: 0 2px 8px rgba(212, 175, 55, 0.5);
 }
 
-/* "HECHO A MANO" — Rojo Rubí con texto dorado */
+/* "HECHO A MANO" — Rojo Carmesí en ambos modos */
 .maceta-item:nth-of-type(odd) .gallery-tag {
-    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-    color: #fde68a;
-    box-shadow: 0 2px 10px rgba(220, 38, 38, 0.5);
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: #ffffff;
+    box-shadow: 0 2px 10px rgba(239, 68, 68, 0.5);
 }
 
 /* "EDICIÓN LIMITADA" — Verde Esmeralda */
 .maceta-item:nth-of-type(even) .gallery-tag {
     background: linear-gradient(135deg, #059669 0%, #047857 100%);
-    color: #fde68a;
+    color: #ffffff;
     box-shadow: 0 2px 10px rgba(5, 150, 105, 0.5);
 }
 
@@ -293,24 +359,6 @@ h3 {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
 }
 
-/* Destello suave al pasar el cursor (efecto lujo) */
-.maceta-item::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -80%;
-    width: 45%;
-    height: 100%;
-    background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.35) 50%, transparent 80%);
-    transform: skewX(-12deg);
-    pointer-events: none;
-    transition: left 0.8s ease;
-}
-
-.maceta-item:hover::after {
-    left: 130%;
-}
-
 /* Fotos de estilo de vida / ambiente */
 .lifestyle-gallery img {
     width: 100% !important;
@@ -332,7 +380,7 @@ h3 {
 
 .old-price {
     text-decoration: line-through;
-    color: #94a3b8;
+    color: var(--placeholder-color);
     font-size: 1.05rem;
     font-weight: 600;
 }
@@ -352,17 +400,19 @@ h3 {
     display: inline-block;
     padding: 6px 14px;
     border-radius: 999px;
-    background: rgba(16, 185, 129, 0.15);
-    border: 1px solid rgba(16, 185, 129, 0.5);
-    color: #34d399;
+    background: var(--success-bg);
+    border: 1px solid var(--success-border);
+    color: var(--success-text);
     font-size: 0.78rem;
     font-weight: 600;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .desc,
 p,
 li {
-    color: #cbd5e1;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
 }
 
 .desc {
@@ -382,21 +432,23 @@ li {
     border-radius: 999px;
     background: rgba(212, 175, 55, 0.1);
     border: 1px solid rgba(212, 175, 55, 0.35);
-    color: #f0d465;
+    color: var(--gold-text);
     font-size: 0.8rem;
     font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 /* ---------- Formulario ---------- */
 form {
-    background: rgba(13, 19, 31, 0.5);
-    border: 1px solid rgba(212, 175, 55, 0.25);
+    background: var(--form-bg);
+    border: 1px solid var(--gold-border);
     border-radius: 18px;
     padding: 24px;
     margin: 6px 0 18px;
     display: flex;
     flex-direction: column;
     gap: 14px;
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 form h3 {
@@ -405,28 +457,30 @@ form h3 {
 
 .form-sub {
     font-size: 0.9rem;
-    color: #94a3b8;
+    color: var(--text-secondary);
     margin: 0;
+    transition: color 0.3s ease;
 }
 
 label {
     font-size: 0.85rem;
     font-weight: 700;
-    color: #e2e8f0;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 
 input,
 textarea {
     width: 100% !important;
     padding: 13px 16px;
-    border: 1.5px solid rgba(148, 163, 184, 0.35);
+    border: 1.5px solid var(--input-border);
     border-radius: 12px;
-    background: #0d131f;
+    background: var(--input-bg);
     font-family: inherit;
     font-size: 0.95rem;
-    color: #f1f5f9;
+    color: var(--input-color);
     box-sizing: border-box !important;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.3s ease, color 0.3s ease;
 }
 
 input:focus,
@@ -438,7 +492,7 @@ textarea:focus {
 
 input::placeholder,
 textarea::placeholder {
-    color: #64748b;
+    color: var(--placeholder-color);
 }
 
 textarea {
@@ -446,7 +500,7 @@ textarea {
     resize: vertical;
 }
 
-/* --- BOTONES DE ALTA ELEGANCIA Y LUJO --- */
+/* --- BOTONES DE ALTA ELEGANCIA Y LUJO (Verde Esmeralda en ambos modos) --- */
 .btn-gema-red,
 button[type="submit"],
 .btn-primary,
@@ -498,7 +552,7 @@ a.btn:active {
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
 }
 
-/* --- BOTÓN SECUNDARIO / WHATSAPP ESMEALDA VIBRANTE --- */
+/* --- BOTÓN SECUNDARIO / WHATSAPP (Verde Esmeralda en ambos modos) --- */
 .btn-whatsapp-inline,
 .btn-gema-green,
 .btn-whatsapp-direct {
@@ -538,41 +592,13 @@ a.btn:active {
     border-color: #f5e0a3 !important;
 }
 
-/* EFECTO DE DESTELLO AL PASAR EL CURSOR */
-.btn-gema-red::after,
-.btn-whatsapp-inline::after,
-.btn-gema-green::after,
-.btn-whatsapp-direct::after,
-button[type="submit"]::after,
-.btn-primary::after,
-.btn::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -60%;
-    width: 20%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: rotate(30deg);
-    transition: all 0.75s ease;
-}
-
-.btn-gema-red:hover::after,
-.btn-whatsapp-inline:hover::after,
-.btn-gema-green:hover::after,
-.btn-whatsapp-direct:hover::after,
-button[type="submit"]:hover::after,
-.btn-primary:hover::after,
-.btn:hover::after {
-    left: 120%;
-}
-
 /* ---------- Confianza ---------- */
 .trust {
     text-align: center;
     font-size: 0.88rem;
-    color: #94a3b8;
+    color: var(--text-secondary);
     margin: 26px 0 0;
+    transition: color 0.3s ease;
 }
 
 .stars {
@@ -589,15 +615,16 @@ button[type="submit"]:hover::after,
 
 .specs-table td {
     padding: 12px 8px;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    border-bottom: 1px solid var(--divider);
     font-size: 0.92rem;
-    color: #cbd5e1;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
 }
 
 .specs-table td:first-child {
     width: 42%;
     font-weight: 700;
-    color: #f0d465;
+    color: var(--gold-text);
 }
 
 .specs-table tr:last-child td {
@@ -613,16 +640,16 @@ button[type="submit"]:hover::after,
 
 .benefit {
     text-align: center;
-    background: rgba(23, 32, 51, 0.55);
-    border: 1px solid rgba(212, 175, 55, 0.25);
+    background: var(--inner-bg);
+    border: 1px solid var(--gold-border);
     border-radius: 16px;
     padding: 22px 16px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .benefit:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35), 0 8px 20px rgba(37, 99, 235, 0.15);
+    box-shadow: var(--shadow-deep);
 }
 
 .b-icon {
@@ -646,8 +673,9 @@ button[type="submit"]:hover::after,
 .benefit p {
     font-size: 0.85rem;
     line-height: 1.6;
-    color: #94a3b8;
+    color: var(--text-secondary);
     margin: 0;
+    transition: color 0.3s ease;
 }
 
 /* ---------- Valoraciones / Reseñas ---------- */
@@ -662,21 +690,23 @@ button[type="submit"]:hover::after,
 }
 
 .review {
-    background: rgba(23, 32, 51, 0.6);
-    border: 1px solid rgba(212, 175, 55, 0.25);
+    background: var(--inner-bg);
+    border: 1px solid var(--gold-border);
     border-radius: 16px;
     padding: 22px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    box-shadow: var(--card-shadow);
     display: flex;
     flex-direction: column;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .review-photo-card {
-    background: rgba(23, 32, 51, 0.8);
+    background: var(--card-bg);
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--gold-border);
+    box-shadow: var(--card-shadow);
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .r-stars {
@@ -689,15 +719,17 @@ button[type="submit"]:hover::after,
 .review p {
     font-size: 0.92rem;
     line-height: 1.7;
-    color: #cbd5e1;
+    color: var(--text-secondary);
     margin: 0 0 12px;
     flex: 1;
+    transition: color 0.3s ease;
 }
 
 .r-name {
     font-size: 0.85rem;
     font-weight: 700;
-    color: #f0f5ff;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 
 /* Fotos de compradores: proporción uniforme */
@@ -724,24 +756,26 @@ main img {
 
 /* ---------- FAQ ---------- */
 .faq-item {
-    background: rgba(23, 32, 51, 0.5);
+    background: var(--inner-bg);
     border-left: 3px solid #d4af37;
     border-radius: 12px;
     padding: 16px 18px;
     margin-bottom: 12px;
+    transition: background 0.3s ease;
 }
 
 .faq-item h3 {
     font-size: 0.95rem;
     margin: 0 0 6px;
-    color: #f0d465;
+    color: var(--gold-text);
 }
 
 .faq-item p {
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #94a3b8;
+    color: var(--text-secondary);
     margin: 0;
+    transition: color 0.3s ease;
 }
 
 /* ---------- QR (passepartout de galería) ---------- */
@@ -754,9 +788,10 @@ main img {
 }
 
 .qr-subtitulo {
-    color: #94a3b8;
+    color: var(--text-secondary);
     font-size: 0.95rem;
     margin: 0 0 20px;
+    transition: color 0.3s ease;
 }
 
 .qr-marco {
@@ -765,7 +800,7 @@ main img {
     border: 6px double rgba(212, 175, 55, 0.6);
     border-radius: 18px;
     padding: 22px;
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.35), 0 14px 34px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.35), var(--card-shadow);
     margin-bottom: 12px;
     position: relative;
 }
@@ -779,10 +814,11 @@ main img {
 .qr-etiqueta {
     font-family: 'Cinzel', Georgia, serif;
     font-size: 0.8rem;
-    color: #f0d465;
+    color: var(--gold-text);
     margin: 6px 0 18px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+    transition: color 0.3s ease;
 }
 
 .qr-botones {
@@ -796,10 +832,11 @@ main img {
 /* ---------- Footer ---------- */
 .main-footer {
     text-align: center;
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--text-secondary);
     font-size: 0.85rem;
     line-height: 1.8;
     padding: 10px 0 0;
+    transition: color 0.3s ease;
 }
 
 /* Footer de créditos final */
@@ -807,7 +844,8 @@ main img {
     text-align: center;
     padding: 26px 20px 10px;
     margin-top: 40px;
-    color: rgba(226, 223, 216, 0.7);
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
 }
 
 .footer-creditos p {
@@ -815,7 +853,7 @@ main img {
     font-size: 0.74rem;
     letter-spacing: 0.08em;
     margin: 6px 0;
-    color: rgba(226, 223, 216, 0.72);
+    color: var(--text-secondary);
 }
 
 .sep-creditos {
@@ -872,13 +910,14 @@ a[href*="wa.me"].float {
 
 /* ---------- Mensaje de éxito en formulario ---------- */
 .exito {
-    background: rgba(16, 185, 129, 0.15);
-    border: 1px solid rgba(16, 185, 129, 0.5);
+    background: var(--success-bg);
+    border: 1px solid var(--success-border);
     border-radius: 14px;
     padding: 18px;
-    color: #34d399;
+    color: var(--success-text);
     font-weight: 600;
     text-align: center;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 /* ---------- Animación de aparición (scroll) ---------- */
@@ -941,6 +980,7 @@ a[href*="wa.me"].float {
 
 /* =========================================================
    ANULACIÓN ESTRICTA — Destellos y franjas decorativas
+   (se aplica igual en modo claro y oscuro)
    ========================================================= */
 
 /* Desactivar todos los elementos y destellos decorativos que forman franjas */
@@ -990,40 +1030,9 @@ button[type="submit"]:hover::after,
     background: none !important;
 }
 
-/* Fondo sólido y limpio de un solo gradiente */
+/* Fondo limpio adaptado al tema (segunda pasada de anulación) */
 body {
-    background: #0f172a !important;
-    background-image: radial-gradient(circle at top, #1e293b, #0f172a) !important;
+    background-color: var(--bg-color) !important;
+    background-image: var(--bg-image) !important;
     background-attachment: fixed !important;
-}
-
-/* =========================================================
-   ANULACIÓN FINAL — Eliminar bloques de destellos diagonales
-   ========================================================= */
-
-/* Eliminar definitivamente los bloques de destellos diagonales */
-body::before,
-body::after,
-div[class*="shine"],
-div[class*="reflection"],
-.bg-glow,
-.light-effect,
-.light-reflection,
-.reflection,
-.shine,
-[class*="glow"] {
-    display: none !important;
-    content: none !important;
-    background: none !important;
-    animation: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-}
-
-/* Asegurar fondo limpio azul noche sin elementos superpuestos */
-body {
-    background-color: #0d131f !important;
-    background-image: linear-gradient(160deg, #0d131f 0%, #172033 55%, #0d131f 100%) !important;
-    position: relative;
-    overflow-x: hidden;
 }
