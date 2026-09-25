@@ -977,3 +977,34 @@ body {
     background-image: radial-gradient(circle at top, #1e293b, #0f172a) !important;
     background-attachment: fixed !important;
 }
+
+/* =========================================================
+   ANULACIÓN FINAL — Eliminar bloques de destellos diagonales
+   ========================================================= */
+
+/* Eliminar definitivamente los bloques de destellos diagonales */
+body::before,
+body::after,
+div[class*="shine"],
+div[class*="reflection"],
+.bg-glow,
+.light-effect,
+.light-reflection,
+.reflection,
+.shine,
+[class*="glow"] {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    animation: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Asegurar fondo limpio azul noche sin elementos superpuestos */
+body {
+    background-color: #0f172a !important;
+    background-image: none !important;
+    position: relative;
+    overflow-x: hidden;
+}
