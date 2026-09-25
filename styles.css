@@ -18,9 +18,9 @@ html {
 
 body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
-    background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 100%) !important;
+    background: linear-gradient(160deg, #0d131f 0%, #172033 55%, #0d131f 100%) !important;
     background-attachment: fixed !important;
-    color: #2b2d42 !important;
+    color: #e2e8f0 !important;
     margin: 0 !important;
     padding: 20px 10px !important;
     min-height: 100vh !important;
@@ -70,12 +70,12 @@ svg,
 .site-header {
     text-align: center;
     padding: 46px 24px 38px;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(23, 32, 51, 0.85);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(212, 175, 55, 0.25);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     border-radius: 28px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4), 0 0 26px rgba(37, 99, 235, 0.12);
     margin: 0 0 30px;
     position: relative;
     overflow: hidden;
@@ -104,7 +104,7 @@ svg,
     font-weight: 700;
     letter-spacing: 3px;
     margin: 22px 0 12px;
-    background: linear-gradient(115deg, #8a6d1b 0%, #d4af37 35%, #f5e0a3 50%, #d4af37 65%, #8a6d1b 100%);
+    background: linear-gradient(115deg, #ffffff 0%, #93c5fd 40%, #cbe4ff 55%, #93c5fd 70%, #ffffff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -117,7 +117,7 @@ svg,
     letter-spacing: 0.4em;
     font-size: 0.74rem;
     font-weight: 600;
-    color: #9a7b26;
+    color: #93c5fd;
     margin: 0 0 18px;
     padding-left: 0.4em;
 }
@@ -125,14 +125,14 @@ svg,
 .header-author {
     display: inline-block;
     padding: 8px 18px;
-    border: 1px solid rgba(212, 175, 55, 0.4);
+    border: 1px solid rgba(212, 175, 55, 0.5);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(13, 19, 31, 0.6);
     font-family: 'Cinzel', Georgia, serif;
     font-size: 0.74rem;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: 0.12em;
-    color: #6b5b2e;
+    color: #f5c542;
 }
 
 /* Badge Colección Exclusiva */
@@ -161,16 +161,16 @@ svg,
     color: rgba(255, 255, 255, 0.88);
 }
 
-/* ---------- Tarjetas (Glassmorphism) ---------- */
+/* ---------- Tarjetas (Cristal oscuro + dorado sutil) ---------- */
 .card,
 section,
 header {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(23, 32, 51, 0.85);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(212, 175, 55, 0.25);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 12px 32px rgba(37, 99, 235, 0.18);
     padding: 30px 26px;
     margin-bottom: 26px;
     box-sizing: border-box;
@@ -181,7 +181,7 @@ section h2 {
     font-size: 1.35rem;
     font-weight: 700;
     letter-spacing: 0.02em;
-    color: #8a6d1b;
+    color: #e0f2fe;
     margin: 0 0 6px;
     display: flex;
     align-items: center;
@@ -193,13 +193,13 @@ section h2 .icon {
 }
 
 .sub-title {
-    color: #7a705c;
+    color: #94a3b8;
     font-size: 0.95rem;
     margin: 0 0 22px;
 }
 
 h3 {
-    color: #2a2418;
+    color: #e2e8f0;
     font-weight: 700;
     margin: 0 0 10px;
 }
@@ -223,21 +223,21 @@ h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
-    border: 1px solid rgba(212, 175, 55, 0.28);
+    background: rgba(23, 32, 51, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     border-radius: 20px;
     padding: 16px 14px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 8px 22px rgba(37, 99, 235, 0.14);
     position: relative;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .maceta-item:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(212, 175, 55, 0.45);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.45), 0 16px 34px rgba(37, 99, 235, 0.22);
 }
 
-/* Etiqueta dorada discreta */
+/* Etiqueta base (dorada) */
 .gallery-tag {
     position: absolute;
     top: 10px;
@@ -253,6 +253,20 @@ h3 {
     letter-spacing: 0.14em;
     text-transform: uppercase;
     box-shadow: 0 2px 8px rgba(212, 175, 55, 0.5);
+}
+
+/* "HECHO A MANO" — Rojo Rubí con texto dorado */
+.maceta-item:nth-of-type(odd) .gallery-tag {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    color: #fde68a;
+    box-shadow: 0 2px 10px rgba(220, 38, 38, 0.5);
+}
+
+/* "EDICIÓN LIMITADA" — Verde Esmeralda */
+.maceta-item:nth-of-type(even) .gallery-tag {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: #fde68a;
+    box-shadow: 0 2px 10px rgba(5, 150, 105, 0.5);
 }
 
 /* Imágenes uniformes y completas */
@@ -318,7 +332,7 @@ h3 {
 
 .old-price {
     text-decoration: line-through;
-    color: #a8a29e;
+    color: #94a3b8;
     font-size: 1.05rem;
     font-weight: 600;
 }
@@ -327,8 +341,8 @@ h3 {
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: -0.01em;
-    color: #9a7b26;
-    background: linear-gradient(115deg, #8a6d1b, #d4af37);
+    color: #d4af37;
+    background: linear-gradient(115deg, #f5e0a3, #d4af37);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -338,9 +352,9 @@ h3 {
     display: inline-block;
     padding: 6px 14px;
     border-radius: 999px;
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-    color: #15803d;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.5);
+    color: #34d399;
     font-size: 0.78rem;
     font-weight: 600;
 }
@@ -348,7 +362,7 @@ h3 {
 .desc,
 p,
 li {
-    color: #4c4538;
+    color: #cbd5e1;
 }
 
 .desc {
@@ -366,17 +380,17 @@ li {
 .feature {
     padding: 7px 14px;
     border-radius: 999px;
-    background: rgba(212, 175, 55, 0.12);
+    background: rgba(212, 175, 55, 0.1);
     border: 1px solid rgba(212, 175, 55, 0.35);
-    color: #8a6d1b;
+    color: #f0d465;
     font-size: 0.8rem;
     font-weight: 600;
 }
 
 /* ---------- Formulario ---------- */
 form {
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    background: rgba(13, 19, 31, 0.5);
+    border: 1px solid rgba(212, 175, 55, 0.25);
     border-radius: 18px;
     padding: 24px;
     margin: 6px 0 18px;
@@ -391,26 +405,26 @@ form h3 {
 
 .form-sub {
     font-size: 0.9rem;
-    color: #7a705c;
+    color: #94a3b8;
     margin: 0;
 }
 
 label {
     font-size: 0.85rem;
     font-weight: 700;
-    color: #2a2418;
+    color: #e2e8f0;
 }
 
 input,
 textarea {
     width: 100% !important;
     padding: 13px 16px;
-    border: 1.5px solid rgba(138, 109, 27, 0.25);
+    border: 1.5px solid rgba(148, 163, 184, 0.35);
     border-radius: 12px;
-    background: #ffffff;
+    background: #0d131f;
     font-family: inherit;
     font-size: 0.95rem;
-    color: #1c1917;
+    color: #f1f5f9;
     box-sizing: border-box !important;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -420,6 +434,11 @@ textarea:focus {
     outline: none;
     border-color: #d4af37;
     box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.18);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #64748b;
 }
 
 textarea {
@@ -440,16 +459,16 @@ button,
     justify-content: center;
     width: 100%;
     padding: 16px 32px;
-    background: linear-gradient(135deg, #7c2d8a 0%, #a855d0 50%, #6a1f78 100%) !important;
-    color: #F8F5F0 !important;
+    background: linear-gradient(135deg, #10b981 0%, #25d366 50%, #0d9f5e 100%) !important;
+    color: #ffffff !important;
     font-family: 'Cinzel', Georgia, serif;
     font-size: 1.02rem;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    border: 1px solid #d4af37 !important;
+    border: 1px solid rgba(212, 175, 55, 0.5) !important;
     border-radius: 12px;
-    box-shadow: 0 8px 22px rgba(124, 45, 138, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 0 12px rgba(212, 175, 55, 0.25);
+    box-shadow: 0 8px 22px rgba(16, 185, 129, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 0 12px rgba(212, 175, 55, 0.2);
     cursor: pointer;
     text-decoration: none !important;
     box-sizing: border-box;
@@ -466,8 +485,8 @@ button[type="submit"]:hover,
 a.btn:hover,
 button:hover,
 .button:hover {
-    background: linear-gradient(135deg, #8d35a0 0%, #c070e0 50%, #7c2d8a 100%) !important;
-    box-shadow: 0 14px 32px rgba(124, 45, 138, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.6), 0 0 18px rgba(212, 175, 55, 0.4);
+    background: linear-gradient(135deg, #25d366 0%, #34d399 50%, #10b981 100%) !important;
+    box-shadow: 0 14px 32px rgba(37, 211, 102, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.6), 0 0 18px rgba(212, 175, 55, 0.3);
     transform: translateY(-3px);
     border-color: #f5e0a3 !important;
 }
@@ -476,10 +495,10 @@ button:active,
 .btn:active,
 a.btn:active {
     transform: translateY(0) scale(0.97);
-    box-shadow: 0 4px 12px rgba(124, 45, 138, 0.35);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
 }
 
-/* --- BOTÓN SECUNDARIO / WHATSAPP JADE ELEGANTE --- */
+/* --- BOTÓN SECUNDARIO / WHATSAPP ESMEALDA VIBRANTE --- */
 .btn-whatsapp-inline,
 .btn-gema-green,
 .btn-whatsapp-direct {
@@ -490,16 +509,16 @@ a.btn:active {
     width: 100%;
     padding: 15px 30px;
     margin-top: 14px;
-    background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #022c22 100%) !important;
-    color: #F8F5F0 !important;
+    background: linear-gradient(135deg, #059669 0%, #10b981 50%, #047857 100%) !important;
+    color: #ffffff !important;
     font-family: 'Cinzel', Georgia, serif;
     font-size: 0.95rem;
     font-weight: 600;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    border: 1px solid rgba(212, 175, 55, 0.55) !important;
+    border: 1px solid rgba(212, 175, 55, 0.5) !important;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(4, 120, 87, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.3);
     text-decoration: none !important;
     cursor: pointer;
     position: relative;
@@ -513,8 +532,8 @@ a.btn:active {
 .btn-whatsapp-inline:hover,
 .btn-gema-green:hover,
 .btn-whatsapp-direct:hover {
-    background: linear-gradient(135deg, #047857 0%, #10b981 50%, #064e3b 100%) !important;
-    box-shadow: 0 12px 26px rgba(16, 185, 129, 0.5), 0 0 14px rgba(212, 175, 55, 0.35);
+    background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #059669 100%) !important;
+    box-shadow: 0 12px 26px rgba(16, 185, 129, 0.5), 0 0 14px rgba(212, 175, 55, 0.3);
     transform: translateY(-2px);
     border-color: #f5e0a3 !important;
 }
@@ -552,7 +571,7 @@ button[type="submit"]:hover::after,
 .trust {
     text-align: center;
     font-size: 0.88rem;
-    color: #7a705c;
+    color: #94a3b8;
     margin: 26px 0 0;
 }
 
@@ -570,15 +589,15 @@ button[type="submit"]:hover::after,
 
 .specs-table td {
     padding: 12px 8px;
-    border-bottom: 1px solid rgba(138, 109, 27, 0.15);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
     font-size: 0.92rem;
-    color: #4c4538;
+    color: #cbd5e1;
 }
 
 .specs-table td:first-child {
     width: 42%;
     font-weight: 700;
-    color: #8a6d1b;
+    color: #f0d465;
 }
 
 .specs-table tr:last-child td {
@@ -594,8 +613,8 @@ button[type="submit"]:hover::after,
 
 .benefit {
     text-align: center;
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    background: rgba(23, 32, 51, 0.55);
+    border: 1px solid rgba(212, 175, 55, 0.25);
     border-radius: 16px;
     padding: 22px 16px;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -603,7 +622,7 @@ button[type="submit"]:hover::after,
 
 .benefit:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35), 0 8px 20px rgba(37, 99, 235, 0.15);
 }
 
 .b-icon {
@@ -627,7 +646,7 @@ button[type="submit"]:hover::after,
 .benefit p {
     font-size: 0.85rem;
     line-height: 1.6;
-    color: #7a705c;
+    color: #94a3b8;
     margin: 0;
 }
 
@@ -643,21 +662,21 @@ button[type="submit"]:hover::after,
 }
 
 .review {
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    background: rgba(23, 32, 51, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.25);
     border-radius: 16px;
     padding: 22px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     display: flex;
     flex-direction: column;
 }
 
 .review-photo-card {
-    background: #ffffff;
+    background: rgba(23, 32, 51, 0.8);
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid rgba(212, 175, 55, 0.3);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 .r-stars {
@@ -670,7 +689,7 @@ button[type="submit"]:hover::after,
 .review p {
     font-size: 0.92rem;
     line-height: 1.7;
-    color: #4c4538;
+    color: #cbd5e1;
     margin: 0 0 12px;
     flex: 1;
 }
@@ -678,7 +697,7 @@ button[type="submit"]:hover::after,
 .r-name {
     font-size: 0.85rem;
     font-weight: 700;
-    color: #2a2418;
+    color: #f0f5ff;
 }
 
 /* Fotos de compradores: proporción uniforme */
@@ -705,7 +724,7 @@ main img {
 
 /* ---------- FAQ ---------- */
 .faq-item {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(23, 32, 51, 0.5);
     border-left: 3px solid #d4af37;
     border-radius: 12px;
     padding: 16px 18px;
@@ -715,13 +734,13 @@ main img {
 .faq-item h3 {
     font-size: 0.95rem;
     margin: 0 0 6px;
-    color: #8a6d1b;
+    color: #f0d465;
 }
 
 .faq-item p {
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #6b5f4a;
+    color: #94a3b8;
     margin: 0;
 }
 
@@ -735,7 +754,7 @@ main img {
 }
 
 .qr-subtitulo {
-    color: #7a705c;
+    color: #94a3b8;
     font-size: 0.95rem;
     margin: 0 0 20px;
 }
@@ -746,7 +765,7 @@ main img {
     border: 6px double rgba(212, 175, 55, 0.6);
     border-radius: 18px;
     padding: 22px;
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.35), 0 14px 34px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.35), 0 14px 34px rgba(0, 0, 0, 0.35);
     margin-bottom: 12px;
     position: relative;
 }
@@ -760,7 +779,7 @@ main img {
 .qr-etiqueta {
     font-family: 'Cinzel', Georgia, serif;
     font-size: 0.8rem;
-    color: #8a6d1b;
+    color: #f0d465;
     margin: 6px 0 18px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -853,11 +872,11 @@ a[href*="wa.me"].float {
 
 /* ---------- Mensaje de éxito en formulario ---------- */
 .exito {
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.5);
     border-radius: 14px;
     padding: 18px;
-    color: #15803d;
+    color: #34d399;
     font-weight: 600;
     text-align: center;
 }
@@ -1003,8 +1022,8 @@ div[class*="reflection"],
 
 /* Asegurar fondo limpio azul noche sin elementos superpuestos */
 body {
-    background-color: #0f172a !important;
-    background-image: none !important;
+    background-color: #0d131f !important;
+    background-image: linear-gradient(160deg, #0d131f 0%, #172033 55%, #0d131f 100%) !important;
     position: relative;
     overflow-x: hidden;
 }
