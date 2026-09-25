@@ -17,19 +17,23 @@ html {
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    background: linear-gradient(160deg, #0f172a 0%, #1e293b 55%, #111827 100%) fixed;
-    color: #e2dfd8;
-    margin: 0;
-    padding: 30px 16px 60px;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+    background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 100%) !important;
+    background-attachment: fixed !important;
+    color: #2b2d42 !important;
+    margin: 0 !important;
+    padding: 20px 10px !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
     line-height: 1.7;
-    overflow-x: hidden;
-    min-height: 100vh;
-    position: relative;
 }
 
-/* Brillo ambiental dorado sutil */
-body::before {
+/* Eliminar cualquier elemento de reflejo decorativo que cause franjas recortadas */
+body::before,
+body::after,
+.bg-glow,
+.light-reflection {
+    display: none !important;
     content: none !important;
 }
 
@@ -38,7 +42,6 @@ body, .container {
     overflow: visible !important;
 }
 
-body::after,
 .container::before, .container::after,
 main::before, main::after {
     content: none !important;
@@ -76,14 +79,6 @@ svg,
     margin: 0 0 30px;
     position: relative;
     overflow: hidden;
-}
-
-.site-header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: radial-gradient(ellipse at 50% -20%, rgba(212, 175, 55, 0.18) 0%, transparent 60%);
 }
 
 .logo-frame {
