@@ -919,3 +919,61 @@ a[href*="wa.me"].float {
         transform: none;
     }
 }
+
+/* =========================================================
+   ANULACIÓN ESTRICTA — Destellos y franjas decorativas
+   ========================================================= */
+
+/* Desactivar todos los elementos y destellos decorativos que forman franjas */
+body::before,
+body::after,
+.light-reflection,
+.bg-glow,
+.reflection,
+.shine,
+[class*="reflection"],
+[class*="glow"] {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    content: none !important;
+    background: none !important;
+}
+
+/* Desactivar el destello diagonal del hover de las macetas */
+.maceta-item::after,
+.maceta-item:hover::after,
+.gallery-tag::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+}
+
+/* Desactivar el destello diagonal de los botones */
+.btn::after,
+.button::after,
+a.btn::after,
+.btn-primary::after,
+.btn-gema-red::after,
+.btn-gema-green::after,
+.btn-whatsapp-inline::after,
+.btn-whatsapp-direct::after,
+button[type="submit"]::after,
+.btn-gema-red:hover::after,
+.btn-whatsapp-inline:hover::after,
+.btn-gema-green:hover::after,
+.btn-whatsapp-direct:hover::after,
+button[type="submit"]:hover::after,
+.btn-primary:hover::after,
+.btn:hover::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+}
+
+/* Fondo sólido y limpio de un solo gradiente */
+body {
+    background: #0f172a !important;
+    background-image: radial-gradient(circle at top, #1e293b, #0f172a) !important;
+    background-attachment: fixed !important;
+}
