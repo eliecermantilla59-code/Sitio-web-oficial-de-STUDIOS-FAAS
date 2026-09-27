@@ -1061,3 +1061,138 @@ body {
     background-image: var(--bg-image) !important;
     background-attachment: fixed !important;
 }
+
+/* =========================================================
+   ESTILOS DE BOTONES LLAMATIVOS Y ELEGANTES - STUDIOS FAAS
+   (Neón: Rojo Rubí + Verde Esmeralda + destello de cristal)
+   ========================================================= */
+
+/* --- 1. BOTÓN PRINCIPAL DE ENVÍO / CONFIRMACIÓN (Rojo Rubí Impresionante) --- */
+.btn-submit,
+button[type="submit"] {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 16px 24px;
+    margin: 15px 0 10px 0;
+
+    /* Degradado rojo carmesí con relieve 3D */
+    background: linear-gradient(135deg, #e60000 0%, #b30000 50%, #800000 100%) !important;
+    color: #ffffff !important;
+
+    /* Tipografía en negrita y espaciada */
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+
+    /* Bordes y esquinas suaves */
+    border: 1.5px solid #ff4d4d !important;
+    border-radius: 14px;
+    cursor: pointer;
+    overflow: hidden;
+
+    /* Sombras profundas y brillo interno para efecto 3D */
+    box-shadow: 0 8px 25px rgba(230, 0, 0, 0.5), inset 0 2px 2px rgba(255, 255, 255, 0.4);
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* Animación de pulso continuo para llamar la atención */
+    animation: pulsoRojo 2.5s infinite;
+}
+
+/* Animación de palpitación para el botón rojo */
+@keyframes pulsoRojo {
+    0% { box-shadow: 0 0 0 0 rgba(230, 0, 0, 0.7); }
+    70% { box-shadow: 0 0 0 14px rgba(230, 0, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(230, 0, 0, 0); }
+}
+
+/* Efecto al pasar el cursor (Hover) */
+.btn-submit:hover,
+button[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.01);
+    background: linear-gradient(135deg, #ff1a1a 0%, #cc0000 50%, #990000 100%) !important;
+    box-shadow: 0 12px 30px rgba(230, 0, 0, 0.7), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* --- 2. BOTÓN DE WHATSAPP CON ÍCONO OFICIAL (Verde Esmeralda Neón) --- */
+.btn-whatsapp,
+a.btn-whatsapp-full {
+    position: relative;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px;
+    width: 100% !important;
+    padding: 16px 24px !important;
+    margin: 10px 0 !important;
+
+    /* Degradado verde esmeralda brillante */
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%) !important;
+    color: #ffffff !important;
+
+    /* Tipografía y formato */
+    font-family: 'Poppins', 'Segoe UI', sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+
+    /* Borde verde neón */
+    border: 1.5px solid #34d399 !important;
+    border-radius: 14px !important;
+    box-sizing: border-box !important;
+    cursor: pointer;
+    overflow: hidden;
+
+    /* Sombra de neón radiante */
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45), inset 0 2px 2px rgba(255, 255, 255, 0.4) !important;
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* Tamaño del ícono SVG de WhatsApp dentro del botón */
+.btn-whatsapp svg,
+a.btn-whatsapp-full svg {
+    width: 24px;
+    height: 24px;
+    fill: #ffffff;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Efecto al pasar el cursor sobre WhatsApp */
+.btn-whatsapp:hover,
+a.btn-whatsapp-full:hover {
+    transform: translateY(-3px) scale(1.01) !important;
+    background: linear-gradient(135deg, #2bf076 0%, #15a393 100%) !important;
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.65), inset 0 2px 4px rgba(255, 255, 255, 0.6) !important;
+}
+
+/* --- 3. EFECTO DE DESTELLO DE CRISTAL (Shine Effect) PARA AMBOS BOTONES --- */
+.btn-submit::after,
+.btn-whatsapp::after,
+a.btn-whatsapp-full::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 30%;
+    height: 200%;
+    display: block !important;
+
+    /* Ráfaga blanca translúcida */
+    background: rgba(255, 255, 255, 0.45);
+    transform: rotate(25deg);
+    transition: all 0.75s ease;
+    pointer-events: none;
+}
+
+/* El destello cruza el botón cuando el usuario pasa el mouse por encima */
+.btn-submit:hover::after,
+.btn-whatsapp:hover::after,
+a.btn-whatsapp-full:hover::after {
+    left: 125%;
+}
