@@ -770,6 +770,66 @@ a.btn:active {
     cursor: pointer;
 }
 
+/* ---------- Cuadrícula de Valoraciones (9 testimonios) ---------- */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.review-card {
+    background: var(--card-bg);
+    border: 1px solid var(--divider);
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-deep);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.review-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e60000;
+}
+
+.review-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-info strong {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.stars {
+    color: #f59e0b;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.review-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin: 0;
+}
+
 .main-footer img,
 .trust img,
 .qr-marco img,
