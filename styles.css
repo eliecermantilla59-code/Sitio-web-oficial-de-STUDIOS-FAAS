@@ -68,6 +68,16 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+/* Responsive: imágenes y multimedia fluidos
+   (las imágenes con dimensiones curadas se re-afirman más abajo) */
+img,
+video {
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    box-sizing: border-box !important;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -119,9 +129,19 @@ svg,
 }
 
 .container {
-    max-width: 920px;
+    max-width: 1200px;
     margin: 0 auto;
     padding-bottom: 24px;
+}
+
+/* Responsive: contenedores fluidos (sin anchos fijos en píxeles) */
+.container,
+.card,
+.main-wrapper {
+    width: 92% !important;
+    max-width: 1200px !important;
+    margin: 15px auto !important;
+    padding: 20px !important;
 }
 
 /* ---------- Encabezado / Hero ---------- */
@@ -150,10 +170,10 @@ svg,
 
 .logo-frame img {
     display: block;
-    width: 108px;
-    height: 108px;
+    width: 108px !important;
+    height: 108px !important;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: cover !important;
     border: 4px solid #ffffff;
 }
 
@@ -271,12 +291,14 @@ h3 {
 }
 
 /* ---------- Galería del producto ---------- */
+.products-grid,
+.gallery-grid,
 .product-grid,
 .galeria-macetas,
 .gallery {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
-    gap: 22px !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 20px !important;
     width: 100% !important;
     padding: 10px 0 !important;
     box-sizing: border-box !important;
@@ -344,6 +366,7 @@ h3 {
     width: 100% !important;
     height: 240px !important;
     object-fit: contain !important;
+    max-height: 240px !important;
     object-position: center !important;
     background-color: #f8fafc !important;
     border-radius: 12px !important;
@@ -794,6 +817,7 @@ a.btn:active {
 .buyers-gallery img {
     width: 100% !important;
     height: 200px !important;
+    max-height: 200px !important;
     object-fit: cover !important;
     border-radius: 12px !important;
     display: block;
@@ -801,6 +825,15 @@ a.btn:active {
 }
 
 /* ---------- Cuadrícula de Valoraciones (9 testimonios) ---------- */
+.products-grid,
+.reviews-grid,
+.gallery-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 20px !important;
+    width: 100% !important;
+}
+
 .reviews-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -835,6 +868,7 @@ a.btn:active {
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #e60000;
+    max-width: 44px !important;
 }
 
 .review-info {
@@ -921,8 +955,9 @@ main img {
 }
 
 .qr-imagen {
-    width: 180px;
-    height: 180px;
+    width: 180px !important;
+    height: 180px !important;
+    max-width: 180px !important;
     display: block;
 }
 
@@ -1150,6 +1185,80 @@ body {
     background-color: var(--bg-color) !important;
     background-image: var(--bg-image) !important;
     background-attachment: fixed !important;
+}
+
+/* =========================================================
+   RESPONSIVE — Adaptación a pantallas pequeñas
+   ========================================================= */
+@media (max-width: 768px) {
+    body {
+        padding: 10px 5px !important;
+    }
+
+    .container,
+    .card {
+        padding: 15px !important;
+        border-radius: 12px !important;
+    }
+
+    h1 {
+        font-size: 1.6rem !important;
+    }
+
+    h2 {
+        font-size: 1.3rem !important;
+    }
+
+    .products-grid,
+    .reviews-grid,
+    .gallery-grid,
+    .products-grid,
+    .galeria-macetas,
+    .gallery {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    .btn-submit,
+    .btn-whatsapp,
+    a.btn-whatsapp-full {
+        font-size: 0.9rem !important;
+        padding: 14px 18px !important;
+    }
+
+    .site-header {
+        padding: 28px 14px 22px !important;
+    }
+
+    .header-sub {
+        letter-spacing: 0.25em !important;
+    }
+
+    .rating-summary {
+        gap: 4px !important;
+        font-size: 0.82rem !important;
+    }
+
+    .divider {
+        margin: 0 1px !important;
+    }
+
+    .review-avatar {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 420px) {
+    .price-row {
+        gap: 10px !important;
+    }
+
+    .qr-imagen {
+        width: 150px !important;
+        height: 150px !important;
+        max-width: 150px !important;
+    }
 }
 
 /* =========================================================
