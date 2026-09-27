@@ -295,7 +295,8 @@ h3 {
 .gallery-grid,
 .product-grid,
 .galeria-macetas,
-.gallery {
+.gallery,
+.reviews-grid {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
     gap: 20px !important;
@@ -318,6 +319,8 @@ h3 {
     box-shadow: var(--card-shadow);
     position: relative;
     transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.3s ease, border-color 0.3s ease;
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
 }
 
 .maceta-item:hover {
@@ -679,12 +682,6 @@ a.btn:active {
     margin: 0 2px;
 }
 
-.stars {
-    color: #d4af37;
-    letter-spacing: 2px;
-    font-size: 1.05rem;
-}
-
 /* ---------- Especificaciones ---------- */
 .specs-table {
     width: 100%;
@@ -723,6 +720,8 @@ a.btn:active {
     border-radius: 16px;
     padding: 22px 16px;
     transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.3s ease, border-color 0.3s ease;
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
 }
 
 .benefit:hover {
@@ -825,19 +824,7 @@ a.btn:active {
 }
 
 /* ---------- Cuadrícula de Valoraciones (9 testimonios) ---------- */
-.products-grid,
-.reviews-grid,
-.gallery-grid {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-    gap: 20px !important;
-    width: 100% !important;
-}
-
 .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
     margin-top: 20px;
 }
 
@@ -848,6 +835,8 @@ a.btn:active {
     padding: 16px;
     box-shadow: var(--card-shadow);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
 }
 
 .review-card:hover {
@@ -1212,7 +1201,6 @@ body {
     .products-grid,
     .reviews-grid,
     .gallery-grid,
-    .products-grid,
     .galeria-macetas,
     .gallery {
         grid-template-columns: 1fr !important;
@@ -1300,6 +1288,10 @@ button[type="submit"] {
 
     /* Animación de pulso continuo para llamar la atención */
     animation: pulsoRojo 2.5s infinite;
+
+    /* Propensión a GPU: acelerar animaciones y hover */
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
 }
 
 /* Animación de palpitación para el botón rojo */
@@ -1351,6 +1343,10 @@ a.btn-whatsapp-full {
     /* Sombra de neón radiante */
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45), inset 0 2px 2px rgba(255, 255, 255, 0.4) !important;
     transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+
+    /* Propensión a GPU: acelerar animaciones y hover */
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
 }
 
 /* Tamaño del ícono SVG de WhatsApp dentro del botón */
