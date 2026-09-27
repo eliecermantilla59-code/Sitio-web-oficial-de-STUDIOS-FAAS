@@ -617,13 +617,43 @@ a.btn:active {
     transform: translateY(-2px) !important;
 }
 
-/* ---------- Confianza ---------- */
+/* ---------- Confianza / Resumen de valoraciones ---------- */
 .trust {
     text-align: center;
     font-size: 0.88rem;
     color: var(--text-secondary);
     margin: 26px 0 0;
     transition: color 0.3s ease;
+}
+
+.rating-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 26px 0 0;
+    transition: color 0.3s ease;
+}
+
+.rating-summary strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.review-count,
+.sales-count,
+.shipping-info {
+    color: var(--text-secondary);
+}
+
+.divider {
+    color: var(--gold-border);
+    font-weight: 300;
+    margin: 0 2px;
 }
 
 .stars {
