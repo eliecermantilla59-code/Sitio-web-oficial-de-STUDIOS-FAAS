@@ -1670,48 +1670,97 @@ header,
         border-color 0.3s ease, box-shadow 0.3s ease !important;
 }
 
-/* Botón flotante de cambio de iluminación (esquina inferior izquierda) */
-.theme-btn {
+/* =============================================================
+   BOTÓN FLOTANTE DE ILUMINACIÓN (píldora, esquina superior derecha)
+   Los `!important` en fondo/color/border son necesarios para
+   vencer la regla global `button { background: ...!important }`.
+   ============================================================= */
+
+/* Variables exclusivas del botón */
+:root {
+    --border-subtle: rgba(226, 232, 240, 0.8);
+    --btn-bg: rgba(255, 255, 255, 0.85);
+    --btn-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+    --border-subtle: rgba(51, 65, 85, 0.8);
+    --btn-bg: rgba(15, 23, 42, 0.85);
+    --btn-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] {
+    --border-subtle: rgba(226, 232, 240, 0.8);
+    --btn-bg: rgba(255, 255, 255, 0.85);
+    --btn-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.theme-toggle-btn {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 1px solid var(--gold-border);
-    background-color: var(--card-bg);
-    color: var(--text-primary);
-    font-size: 20px;
-    line-height: 1;
-    cursor: pointer;
-    box-shadow: var(--shadow-deep), 0 0 12px rgba(212, 175, 55, 0.3);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    display: flex;
+    top: 16px;
+    right: 16px;
+    z-index: 9999;
+
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    gap: 6px;
+
+    width: auto !important;
+    padding: 8px 14px !important;
+    border-radius: 999px !important;
+    border: 1px solid var(--border-subtle) !important;
+    background: var(--btn-bg) !important;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+
+    color: var(--studios-blue) !important;
+    font-family: inherit !important;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    cursor: pointer;
+    box-shadow: var(--btn-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
     will-change: transform, box-shadow;
     transform: translateZ(0);
-    z-index: 9999;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.theme-btn:hover {
-    transform: translateY(-3px) scale(1.08);
-    box-shadow: var(--shadow-deep), 0 0 20px rgba(212, 175, 55, 0.5);
+.theme-toggle-btn:hover {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12), 0 0 14px rgba(212, 175, 55, 0.35);
 }
 
-.theme-btn:focus-visible {
+.theme-toggle-btn:active {
+    transform: translateY(0) scale(0.96);
+}
+
+.theme-toggle-btn:focus-visible {
     outline: 2px solid #d4af37;
     outline-offset: 3px;
 }
 
-@media (max-width: 768px) {
-    .theme-btn {
-        width: 44px;
-        height: 44px;
-        bottom: 14px;
-        left: 14px;
-        font-size: 18px;
+.theme-icon {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* En celulares pequeños se oculta el texto y queda solo el ícono */
+@media (max-width: 480px) {
+    .theme-toggle-btn {
+        top: 12px;
+        right: 12px;
+        padding: 8px;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        justify-content: center;
+    }
+
+    .theme-text {
+        display: none;
     }
 }
