@@ -914,6 +914,47 @@ a.btn:active {
     margin: 0;
 }
 
+/* ---------- Título de valoraciones (responsive, sin desborde) ---------- */
+.reviews-title {
+    flex-wrap: wrap !important;
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+.reviews-title-text {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.reviews-title .icon {
+    flex: 0 0 auto;
+}
+
+.stars-inline {
+    color: #f59e0b;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.review-score {
+    color: var(--text-primary);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* La rejilla y las tarjetas tampoco deben desbordar nunca */
+.reviews-grid,
+.review-card {
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box !important;
+}
+
 .main-footer img,
 .trust img,
 .qr-marco img,
@@ -1246,6 +1287,27 @@ body {
         padding: 14px 18px !important;
     }
 
+    /* Título de valoraciones: tamaño reducido y sin desborde en móvil */
+    .reviews-title {
+        font-size: 1.1rem !important;
+        gap: 6px !important;
+    }
+
+    .reviews-title-text {
+        font-size: 1rem !important;
+        gap: 4px !important;
+        line-height: 1.4;
+    }
+
+    .stars-inline {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    .review-score {
+        font-size: 0.95rem !important;
+    }
+
     .site-header {
         padding: 28px 14px 22px !important;
     }
@@ -1278,6 +1340,14 @@ body {
         width: 150px !important;
         height: 150px !important;
         max-width: 150px !important;
+    }
+
+    .reviews-title-text {
+        font-size: 0.92rem !important;
+    }
+
+    .stars-inline {
+        font-size: 0.8rem;
     }
 }
 
