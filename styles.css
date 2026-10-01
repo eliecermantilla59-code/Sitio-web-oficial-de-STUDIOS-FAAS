@@ -1391,3 +1391,111 @@ a.btn-whatsapp-full::after {
 a.btn-whatsapp-full:hover::after {
     left: 125%;
 }
+
+/* =============================================================
+   INSUMOS Y HERRAMIENTAS RECOMENDADAS - Tarjeta de afiliado
+   ============================================================= */
+.tools-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 20px !important;
+    width: 100% !important;
+}
+
+.tools-item {
+    background: var(--card-bg);
+    border: 1px solid var(--gold-border);
+    border-radius: 20px;
+    padding: 24px 20px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
+}
+
+.tools-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-deep), 0 0 0 1px rgba(212, 175, 55, 0.45);
+}
+
+.tools-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.tools-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Botón de afiliado Amazon — resplandor neón naranja */
+.btn-amazon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: auto;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #ff9900 0%, #e47911 50%, #b86800 100%) !important;
+    color: #111111 !important;
+    font-family: 'Poppins', 'Segoe UI', sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    border: 1.5px solid #ffd479 !important;
+    border-radius: 14px !important;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(255, 153, 0, 0.5), inset 0 2px 2px rgba(255, 255, 255, 0.4), 0 0 14px rgba(255, 153, 0, 0.35);
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
+}
+
+.btn-amazon:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: linear-gradient(135deg, #ffb84d 0%, #ff9900 50%, #e47911 100%) !important;
+    box-shadow: 0 14px 32px rgba(255, 153, 0, 0.7), inset 0 2px 4px rgba(255, 255, 255, 0.5), 0 0 22px rgba(255, 153, 0, 0.5);
+}
+
+/* Destello de cristal para el botón Amazon */
+.btn-amazon::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 30%;
+    height: 200%;
+    display: block !important;
+    background: rgba(255, 255, 255, 0.45);
+    transform: rotate(25deg);
+    transition: all 0.75s ease;
+    pointer-events: none;
+}
+
+.btn-amazon:hover::after {
+    left: 125%;
+}
+
+@media (max-width: 768px) {
+    .btn-amazon {
+        width: 100%;
+        font-size: 0.9rem !important;
+        padding: 14px 18px !important;
+    }
+}
