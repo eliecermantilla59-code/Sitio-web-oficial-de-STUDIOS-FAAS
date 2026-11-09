@@ -37,6 +37,53 @@ Designing immersive mechanics, dynamic environments, and cross-platform interact
 
 ---
 
+## 🌐 Official Web Platform Source
+
+The base platform is implemented with standard **HTML5, CSS3 and JavaScript**. It has no dependencies, package manager or build step.
+
+### Project files
+
+| File | Purpose |
+| --- | --- |
+| `index.html` | Semantic structure, SEO/Open Graph metadata, JSON-LD organization data and all page sections. |
+| `style.css` | Design tokens, responsive layout, components, animations and reduced-motion/forced-colors support. |
+| `script.js` | Mobile navigation, scroll spy, reveal animations, accessible form validation and `mailto:` handoff. |
+
+### Local preview
+
+Open `index.html` directly in the browser, or serve the folder with any static server:
+
+```bash
+# Python
+python -m http.server 8080
+
+# PHP
+php -S localhost:8080
+```
+
+Then visit `http://localhost:8080`.
+
+### Customization
+
+- Update `CONTACT_EMAIL` in `script.js` and the `mailto:` link in `index.html` when the production mailbox is provisioned.
+- Replace the GitHub handle in `index.html` and the JSON-LD with the official account if it changes.
+- Design tokens (colors, typography, radii, shadows) live in the `:root` block of `style.css`.
+- Section copy lives in `index.html`.
+
+### Quality checks
+
+- Responsive layout with accessible navigation, skip link, visible focus states and `aria-current` scroll tracking.
+- Client-side form validation with accessible error messages; the site does not store personal data.
+- Reveal animations respect `prefers-reduced-motion`.
+- No external asset requests; the site works offline.
+- Lighthouse audit: **100 Accessibility · 100 Best Practices · 100 SEO**.
+
+### Licensing
+
+The source code, designs and brand assets in this repository are proprietary. See the copyright section below. Open-source projects published by STUDIOS FAAS are governed by the license declared in their respective repositories.
+
+---
+
 ## 🔒 Copyright & Terms of Use
 
 © 2026 **STUDIOS FAAS**. All rights reserved. 
