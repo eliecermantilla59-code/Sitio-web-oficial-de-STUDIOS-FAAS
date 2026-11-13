@@ -6,7 +6,7 @@ Official website and repository for **STUDIOS FAAS**, an innovative technology c
 
 ## 👔 Executive Leadership
 
-- **Founder & CEO:** Fabio Ardila  
+- **Founder, CEO & Lead Developer:** Fabio Ardila  
   *(Specialized in Electronics Engineering, Embedded Systems, and Software Development)*
 
 ---
@@ -46,8 +46,22 @@ The base platform is implemented with standard **HTML5, CSS3 and JavaScript**. I
 | File | Purpose |
 | --- | --- |
 | `index.html` | Semantic structure, SEO/Open Graph metadata, JSON-LD organization data and all page sections. |
-| `style.css` | Design tokens, responsive layout, components, animations and reduced-motion/forced-colors support. |
-| `script.js` | Mobile navigation, scroll spy, reveal animations, accessible form validation and `mailto:` handoff. |
+| `style.css` | Design tokens, RGB cyber-futuristic theme, responsive layout, components, animations and reduced-motion/forced-colors support. |
+| `script.js` | Mobile navigation, scroll spy, reveal animations, pointer glow, accessible form validation and `mailto:` handoff. |
+| `logo-faas.jpg` | Official STUDIOS FAAS logo (optimized 256×256 JPEG) used in the navigation, footer, favicon and social metadata. |
+| `apple-touch-icon.png` | 180×180 PNG icon derived from the official logo for iOS home screens. |
+
+### Brand palette
+
+The interface uses the official RGB cyber-futuristic identity:
+
+| Token | Value | Usage |
+| --- | --- | --- |
+| `--red` | `#ff2a4b` | Primary accents, highlights and gradient start. |
+| `--green` | `#00e676` | Main action color, success states and gradient center. |
+| `--blue` | `#00b0ff` | Secondary accents, links and gradient end. |
+
+Dynamic gradients, glowing borders and metallic text highlights are defined as reusable custom properties in the `:root` block of `style.css`.
 
 ### Local preview
 

@@ -180,6 +180,40 @@
   }
 
   /* ----------------------------------------------------------------------
+     Pointer-follow glow for service cards
+     ---------------------------------------------------------------------- */
+  const glowItems = Array.from(document.querySelectorAll("[data-glow]"));
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+  if (glowItems.length && finePointer.matches && !reducedMotion) {
+    glowItems.forEach((item) => {
+      let frame = 0;
+
+      item.addEventListener("pointermove", (event) => {
+        if (frame) return;
+
+        frame = window.requestAnimationFrame(() => {
+          const rect = item.getBoundingClientRect();
+
+          item.style.setProperty("--glow-x", `${event.clientX - rect.left}px`);
+          item.style.setProperty("--glow-y", `${event.clientY - rect.top}px`);
+          frame = 0;
+        });
+      });
+
+      item.addEventListener("pointerleave", () => {
+        if (frame) {
+          window.cancelAnimationFrame(frame);
+          frame = 0;
+        }
+
+        item.style.removeProperty("--glow-x");
+        item.style.removeProperty("--glow-y");
+      });
+    });
+  }
+
+  /* ----------------------------------------------------------------------
      Contact form — client-side validation + mailto handoff
      ---------------------------------------------------------------------- */
   const form = document.querySelector("[data-contact-form]");
